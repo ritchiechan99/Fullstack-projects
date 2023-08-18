@@ -7,7 +7,7 @@ export default [
     {
         name: "screen",
         type: "videoTexture",
-        path: "/textures/sdv.mp4",
+        path: "/textures/kdv.mp4",
     },
     {
         name: "screen2",
