@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(228, 247, 253);
+    /* rgb(132, 175, 185) */
+
+}
+hr {
+    border-color: rgb(132, 175, 185);
+    border-style: none;
+    border-top-style: dotted;
+    border-width: 5px;
+    width: 100%;
+}
+.container 
+{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 1%; /* Set a fixed height for the container */
+}
+img:hover 
+{
+    /* Define the styles you want to apply when hovering */
+    opacity: 0.8; /* Example: reduce opacity */
+    transform: scale(1.1); /* Example: slightly increase size */
+}
+table 
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
