@@ -1,4 +1,17 @@
-
+.selfie
+{
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	border-radius: 100%;
+	border: 5px solid #000000;
+}
+.header
+{
+	height: 100vh;
+}
 
 .container {
   position: relative;
@@ -98,6 +111,13 @@
   transform: translateY(0px);
 }
 
+
+button
+{
+	width:auto;
+	height: 50px;
+}
+
 /* -------------------------------------------------------------------------------------------------------------- */
 :root {
 	--primary: rgba(0, 24, 20, 0.842);
@@ -113,18 +133,18 @@
 body {
 	font-family: 'Source Code Pro', monospace;
 	line-height: 1.6;
-  background-color: rgb(152, 252, 255);
+  	background-color: rgb(152, 252, 255);
 }
 
-.header,
+
 .home,
 .about,
 .portfolio,
 .contact {
-	height: 100vh;
+	height: 50vh;
 }
 
-.header,
+.header h1,
 .home,
 .about,
 .portfolio,
@@ -132,6 +152,7 @@ body {
 .footer {
 	position: relative;
 }
+
 
 .header h1,
 .home h1,
@@ -145,9 +166,48 @@ body {
 	left: 50%;
 	transform: translate(-50%, -50%);
 }
-.portfolio-para
+
+/* form email link */
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust the height to your preference */
+  }
+
+  #contact {
+    text-align: center;
+  }
+
+  form {
+    width: 80%;
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+  }
+
+
+/* ---------------------------------------------------- */
+
+.portfolio
 {
-  margin: 0;
+	top: -50px;
+}
+.about
+{
+	top: -150px;
+}
+.about-para
+{
+	margin-top: 150px;
+	position: absolute;
+	top: 35%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.para
+{
+	margin: 0;
 	position: absolute;
 	top: 35%;
 	left: 50%;
@@ -155,13 +215,14 @@ body {
 }
 
 
+/* portfolio picture effect */
 .header h1,
 .footer h1 {
 	color: var(--shades);
 }
 
 .footer {
-	height: 50vh;
+	height: 3vh;
 	background-color: var(--primary);
 }
 

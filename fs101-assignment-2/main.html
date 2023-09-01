@@ -6,8 +6,13 @@
   <title>Ritchie</title>
   <link rel="stylesheet" href="styles/style-main.css">
 </head>
+
 <header class="header">
-	<h1>Header</h1>
+  <div class="header-div">
+    <img class="selfie" src="images/selfie.png" alt="">
+	  <h1>Ritchie</h1>
+    <p class="para">Passionate Game Designer | Crafting Immersive Worlds | Storyteller at Heart | Let's Create Experiences Together</p>
+  </div>
 </header>
 
 
@@ -33,80 +38,100 @@
   <main>
     <section class="home">
       <div id="home">
-        <h1>Home here</h1>
+        <h1>Hi welcome to my portfolio</h1>
       </div>
+        <p class="para">These are the projects I've done so far in my whole career</p>
     </section>
     <section class="about">
       <div id="about">
         <h1>About</h1>
+        <p class="about-para">Welcome to my game design portfolio, a virtual journey through the worlds I've created and the experiences I've crafted. I am [Your Name], a passionate and dedicated game designer with a deep love for storytelling, creativity, and interactive experiences.</p>
       </div>
     </section>
     <section class="portfolio">
       <div id="portfolio">
         <h1>Portfolio</h1>
-        <p class="portfolio-para">These are the projects I've done over my career and game developer</p>
+        <p class="para">These are the projects I've done over my career and game developer</p>
         <div class="container">
-          <div class="box">
+          <a href="https://ritchiechanjunrong.wixsite.com/website/b-u-g-wars" class="box">
             <div class="imgBx">
-              <img src="https://images.unsplash.com/photo-1579748138140-ce9ef2c32db1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80">
+              <img src="images/bugwar.png">
             </div>
             <div class="content">
               <div>
-                <h2>Image Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.
-                </p>
+                <h2>Bug war</h2>
+                <p>This is the final project i did while i was in MAGES, it is a school project.
+                  I am in charge of the cinematic and the aesthetics of the game. I also did some scripting for the UI's
+                -----------------------------</p>
               </div>
             </div>
-          </div>
-          <div class="box">
+          </a>
+          
+          <a href="https://ritchiechanjunrong.wixsite.com/website/shaders-museum" class="box">
             <div class="imgBx">
-              <img src="https://images.unsplash.com/photo-1579639782539-15cc6c0be63f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80">
+              <img src="images/shaderm.png">
             </div>
             <div class="content">
               <div>
-                <h2>Image Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.
-                </p>
+                <h2>Shader Muesuem</h2>
+                <!-- <p>This was the part where I'm mostly focusing learning how to code shaders and also how to use post processing to enhance gameplay
+                  ..............................................              ..</p> -->
+                  <p>This was the part where I'm mostly focusing learning how to code shaders and also how to use post processing to enhance gameplay
+                    ---------------------------------------------------------------------------</p>
               </div>
             </div>
-          </div>
-          <div class="box">
+          </a>
+          <a href="https://ritchiechanjunrong.wixsite.com/website/the-shadow-monarch-1" class="box">
             <div class="imgBx">
-              <img src="https://images.unsplash.com/photo-1603984362497-0a878f607b92?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80">
+              <img src="images/shadow.png">
             </div>
             <div class="content">
               <div>
-                <h2>Image Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.
-                </p>
+                <h2>Shadow Mornarch</h2>
+                <p>This is the 2nd game I've made after learning CG shaders and intermediate programming.
+                  It is a top down souls like game that uses summoning system. 
+                  The story is heavily inspire from a manhwa i've red called "Solo Leveling".</p>
               </div>
             </div>
-          </div>
-          <div class="box">
+          </a>
+          <a href="https://ritchiechanjunrong.wixsite.com/website/to-home" class="box">
             <div class="imgBx">
-              <img src="https://images.unsplash.com/photo-1579310962131-aa21f240d986?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1234&q=80">
+              <img src="images/tohome.png">
             </div>
             <div class="content">
               <div>
-                <h2>Image Title</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusamus molestias quidem iusto.
-                </p>
+                <h2>To home</h2>
+                <p>This is my first official game project that I did for school submission when I'm touching the tips of C#
+                  This was done with the idea of balancing 2d and 3d object to make something aesthetic pleasing for the eyes.</p>
               </div>
             </div>
-          </div>
+          </a>
         </div>
       </div>
     </section>
     <section class="contact">
       <div id="contact">
         <h1>Contact</h1>
+        <form action="mailto:ritchiechanjunrong1999@gmail.com" method="post" enctype="text/plain">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+          <br>
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <br>
+    
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <br>
+    
+          <input type="submit" value="Submit">
+        </form>
       </div>
     </section>
   </main>
   
-  <footer class="footer">
-    <h1>Footer</h1>
-  </footer>
+  <footer class="footer"></footer>
 
   <!-- <div class="container">
     <div class="box">
