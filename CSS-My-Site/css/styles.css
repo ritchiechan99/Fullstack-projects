@@ -1,0 +1,109 @@
+/* body
+{
+    background-color: blue;
+} */
+body
+{
+    margin: 0;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+}
+h1
+{
+    margin: 0;
+    font-size: 90px;
+    font-family: 'Sacramento', cursive;
+    color: #66bfbf;
+    line-height: 300%;
+}
+h2
+{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: normal;
+    color: #66bfbf;
+}
+h3
+{
+    font-family: 'Montserrat', sans-serif;
+    color: #11999E;
+    
+}
+
+a{
+    color: #11999E;
+}
+hr{
+    margin: 60px 0 0 0;
+}
+.small-picture
+{
+    width: 50px; /* Set the desired width */
+    height: auto;
+    text-align: center;
+    margin: 60px 0 0 0;
+}
+.plane
+{
+    width: 150px; /* Set the desired width */
+    height: auto;
+    float: right;
+    margin-right: 30px;
+}
+.fountain
+{
+    width: 150px; /* Set the desired width */
+    height: auto;
+    float: left;
+    margin-right: 30px;
+}
+
+.first-container
+{
+    text-align: center;
+    border: solid;
+    border-width: 10px;
+    border-color: aqua;
+}
+
+.middle-container
+{
+    /* background-color: blue;
+    height: 200px;
+    width: 200px; */
+    border: solid;
+    border-width: 10px;
+    border-color: aqua;
+}
+.bottom-container
+{
+    /* background-color: rgb(255, 0, 0);
+    height: 200px;
+    width: 200px; */
+    border: solid;
+    border-width: 10px;
+    border-color: aqua;
+}
+.mountain
+{
+    border: solid;
+}
+.underline
+{
+    text-underline-position: auto;
+}
+div
+{
+    background-color: #e4f9f5;
+    /* border: solid;
+    border-width: 10px;
+    border-color: aqua; */
+}
+
+
+.skill-row
+{
+    width:50%;
+    margin-inline: auto;
+    margin: 100px auto auto auto;
+}

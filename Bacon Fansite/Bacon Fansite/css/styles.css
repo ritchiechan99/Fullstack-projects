@@ -1,0 +1,41 @@
+/***TAG SELECTOR****/
+h1
+{
+    color : red;
+    font-size: 200px;
+}
+
+img
+{
+    background-color: red;
+}
+
+
+/***CLASS SELECTOR****/   /*ID & Class takes higher priority*/
+.broccoli
+{
+    background-color: rgb(0, 148, 86);
+}
+
+.bacon
+{
+    background-color: red;
+}
+
+
+.circular:hover
+{
+    transition: border-radius 0.3s ease;
+    border-radius: 10%;
+}
+.circular
+{
+    transition: border-radius 0.3s ease;
+    border-radius: 0%;
+}
+/***ID SELECTOR****/ /*only can be use ONCE in a single page*/
+
+#heading 
+{
+    color : blue;
+}

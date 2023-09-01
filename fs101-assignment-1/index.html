@@ -1,26 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ritchie</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      padding: 10px;
+      overflow: hidden;
+      z-index: 3;
+      border: solid black;
+      border-width: 10px;
+      
+    }
+
+
+    .box
+    {
+        width: 100%;
+        height: 300px;
+        background-color: #000000;
+    }
+
+    .luffy-pic-bg {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 2%;
+      
+    }
+
+
+    .luffy-pic {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      border-radius: 100%;
+      border: 5px solid #000000;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #000000;
+      padding: 5px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      padding: 5px 10px;
+      
+    }
+
+    .episodeLink {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        margin: 0 15px;
+        padding: 5px 10px;
+    }
+
+
+    section {
+      text-align: center;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      
+    }
+
+    .seperation{
+        margin: 50px auto auto auto;
+    }
+
+    table 
+    {
+        margin: 0 auto; /* This centers the table horizontally */
+    }
+    .wholePage
+    {
+        border: solid black;
+        border-width: 10px;
+        
+    }
+    .stars 
+    {
+        text-align: left; /* This aligns the content within the stars class to the left */
+        padding-left: 35px;
+    }
+  </style>
 </head>
-    <body>
-        <a href="h3.html">H1</a> &nbsp &nbsp &nbsp &nbsp
-        <a href="h2.html">H2</a> &nbsp &nbsp &nbsp &nbsp
-        <a href="h1.html">H1</a> &nbsp &nbsp &nbsp &nbsp
-        <hr>
-        <img src="images/gear5.png-modified.png" alt="luffy gear 5">
-        <hr>
-        <h1>H3</h1>
-        <p>this is a paragraph</p>
-    </body>
-    <body>
-        <h1>H2</h1>
-        <p>this is a paragraph</p>
-    </body>
-    <body>
-        <h1>H1</h1>
-        <p>this is a paragraph</p>
-    </body>
+<body class = "wholePage">
+
+  <header>
+    
+    <img class="luffy-pic-bg" src="images/1323775.png" alt="luffy-gear5-bg">
+    <h1>Luffy Gear 5</h1>
+    <img class="luffy-pic" src="images/gear5.png-modified.png" alt="luffy-gear5">
+    
+  </header>
+  <!-- <div class="box"></div> -->
+  <!-- navigation -->
+  <nav> 
+    <a href="https://www.youtube.com/watch?v=fC5MKJDW6sc&ab_channel=ONEPIECE公式YouTubeチャンネル">Luffy Gear 5 teaser</a>
+    <a href="https://onepiece.fandom.com/wiki/Monkey_D._Luffy/Abilities_and_Powers">Wiki</a>
+  </nav>
+
+  <section id="section1">
+    <h1>Powers</h2>
+    <p>Bounty : Beli3,000,000,000</p>
+    <table> <!--Table-->
+        <thead>
+            <tr>
+                <th>Skill</th>
+                <th>Skill Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Haki</td>  <!--Table first row-->
+                <td class="stars">★★★★★</td> <!--table 2nd row-->
+            </tr>
+            <tr>
+                <td>Devil fruit</td>
+                <td class="stars">★★★★★★★★</td>
+            </tr>
+        </tbody>
+    </table>
+  </section>
+
+  <section id="section2">
+    <h2>Summary</h2>
+    <hr class="seperation">
+    <p>Gear 5 was created during the climax of the Raid on Onigashima, as a result of Luffy awakening his Devil Fruit for the first time since the Void Century.</p>
+    <p>After awakening, Luffy gains even greater freedom and demonstrates many new abilities such as being able to freely manipulate the shape and size of his body;</p>
+    <p>instead of focusing more on hardening himself using Busoshoku Haki, he takes on a more cartoonish fighting style, as well as being able to grant the environment around him the same properties as rubber, which allowed him to deflect a Bolo Breath by bouncing it back at Kaidou, as well as being able to stretch objects he touches like rubber, including living things and even lightning. </p>
+    <p>As pointed out by Kaidou, Luffy's power now has the characteristics of both Paramecia and Zoan-types.</p>
+  </section>
+
+  <section id="section3">
+    <h3>Link to episode</h2>
+    <p><a class="episodeLink" href="https://wwv.animixplay.com.co/one-piece-episode-1070-english-subbed">Episode Link</a></p>
+  </section>
+
+</body>
 </html>
