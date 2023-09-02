@@ -8,6 +8,13 @@
 	border-radius: 100%;
 	border: 5px solid #000000;
 }
+.name
+{
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
 .header
 {
 	height: 100vh;
@@ -172,7 +179,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust the height to your preference */
+	margin-top: 100px;
+    height: 160vh; /* Adjust the height to your preference */
   }
 
   #contact {
@@ -209,7 +217,7 @@ body {
 {
 	margin: 0;
 	position: absolute;
-	top: 35%;
+	top: 55%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 }

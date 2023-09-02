@@ -10,7 +10,7 @@ body
     top: 0;
     background-color: rgb(255, 66, 98);
      /*         top_edge,  right_edge,  bottom_edge,  left_edge */
-     clip: rect(  -65px,      10000px,       800px,         -100px  );
+     clip: rect(  -65px,      10000px,       580px,         -100px  );
 }
 /* section
 {
@@ -29,6 +29,7 @@ h1{
     font-weight: 800;
     
 }
+
 .headerImg 
 {
     /* position: absolute;
@@ -53,7 +54,12 @@ h1{
    ;
     padding: 5%
    ;
-   }
+}
+
+.feature-icon
+{
+    font-size: 60px;
+}
 
 .main-container{
     padding: 3% 15%;
@@ -62,8 +68,16 @@ h1{
 .navbar-brand
 {
     font-size: 60px;
+    
 }
 
 .feature-box{
     margin-top: 850px;
+}
+
+.btn
+{
+    margin-top: 30px;
+    margin-right: 30px;
+    padding: 2% 5%
 }
