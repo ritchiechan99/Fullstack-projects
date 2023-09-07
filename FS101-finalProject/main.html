@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="main-styles.css">
+
+    <!-- icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+ 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<!-- <h1 id="show-title">Ghibil Studio Library</h1> -->
+
+
+<img class="ghibliImage" src="image/ghbli-logo.png" alt="">
+<body>
+    
+    <!-- <h1 id="show-title">Ghibil Studio Library</h1> -->
+    <!-- <h1 class="page-title">Ghibli Studio Library</h1> -->
+    
+    <div class="form__group field">
+        <input type="input" class="form__field" placeholder="Search for movie" name="Search for movie" id='name' required />
+        <label for="name" class="form__label">Search for movie</label>
+    </div>
+    
+    <div class="movie-container">
+        <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+            <img class="image" src="https://i2.wp.com/hyperallergic.com/wp-content/uploads/2020/09/spirited-away.jpg?resize=1080%2C584&quality=100&ssl=1" draggable="false" onmousemove="MouseMove()" onclick="imageClick(this, -5, 'Spirited Away','In this animated feature by noted Japanese director Hayao Miyazaki, 10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku , who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.')" id = "image1" />
+            <img class="image" src="https://wallpaperaccess.com/full/621034.jpg" draggable="false" onmousemove="MouseMove()" onclick="imageClick(this, -16, 'Howls Moving Castle','In this animated feature by noted Japanese director Hayao Miyazaki, 10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.')" id = "image2" />
+            <img class="image" src="https://wallpaperaccess.com/full/279583.jpg" draggable="false" onmousemove="MouseMove()" onclick="imageClick(this, -30, 'My Neighbour Totoro', 'This acclaimed animated tale by director Hayao Miyazaki follows schoolgirl Satsuke and her younger sister, Mei, as they settle into an old country house with their father and wait for their mother to recover from an illness in an area hospital. As the sisters explore their new home, they encounter and befriend playful spirits in their house and the nearby forest, most notably the massive cuddly creature known as Totoro.')" id = "image3" />
+            <img class="image" src="https://getwallpapers.com/wallpaper/full/e/4/8/1521394-full-size-studio-ghibli-phone-wallpaper-1920x1080.jpg" draggable="false" onmousemove="MouseMove()"onclick="imageClick(this, -45,'Kikis Delivery Service','In this anime feature, 13-year-old Kiki moves to a seaside town with her talking cat, Jiji, to spend a year alone, in accordance with her village tradition for witches in training. After learning to control her broomstick, Kiki sets up a flying courier service and soon becomes a fixture in the community. But when the insecure young witch begins questioning herself and loses her magic abilities, she must overcome her self-doubt to get her powers back.')" id = "image4" />
+            <img class="image" src="https://images-sg.girlstyle.com/wp-content/uploads/2020/10/ponyo040.jpg?auto=format&w=1053" draggable="false" onmousemove="MouseMove()" onclick="imageClick(this, -61, 'Ponyo','During a forbidden excursion to see the surface world, a goldfish princess encounters a human boy named Sosuke, who gives her the name Ponyo. Ponyo longs to become human, and as her friendship with Sosuke grows, she becomes more humanlike. Ponyo father brings her back to their ocean kingdom, but so strong is Ponyo wish to live on the surface that she breaks free, and in the process, spills a collection of magical elixirs that endanger Sosuke village.')" id = "image5" />
+            
+
+        </div>
+        <div id="text-container">
+            <h1 id='show-title'>Ghibli Studio Library</h1>
+            <p id = 'show-summary'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <div class="row">
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-outline-light" onmousemove="MouseMove()"><i class="bi bi-play-fill"></i>Play</button>
+                    <button type="button" class="btn btn-light" onmousemove="MouseMove()"><i class="bi bi-info-circle"></i>More info</button>
+                </div>
+            </div>
+            
+        </div>
+        <div id="page-summary">
+            <!-- <h1 id='show-imagePos'>Ghibil Studio Library</h1> -->
+            <h1 id='show-title'>Ghibli Studio Library</h1>
+            <p id = 'show-summary'>Studio Ghibli is a renowned Japanese animation studio known for producing a diverse and beloved library of animated films. Founded by filmmakers Hayao Miyazaki and Isao Takahata, Studio Ghibli's library includes iconic films like "My Neighbor Totoro," "Spirited Away," "Princess Mononoke," and many more. These films are celebrated for their captivating storytelling, imaginative worlds, and rich characters, making Studio Ghibli a beloved and influential presence in the world of animation.</p>
+            
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script>
+        
+
+        const track = document.getElementById("image-track");
+        const images = track.getElementsByClassName("image");
+        const indexDisplay = document.getElementById("index-display");
+        let index = 0;
+
+        
+        let test = false;
+        const containerWidth = window.innerWidth;
+
+
+        const title = document.getElementById('show-title');
+        const summaryBox = document.getElementById('show-summary');
+        
+        const pageTitle = document.getElementById('page-title');
+
+        const showPercentage = document.getElementById('show-imagePos');
+        const textBox = document.getElementById("text-container");
+        
+        const pageSummary = document.getElementById("page-summary");
+
+
+
+// -----------------------------------------------
+        let mouseStoppedTimer;
+        const delay = 50;
+
+        function MouseMove()
+        {
+            clearTimeout(mouseStoppedTimer);
+    
+            const images = track.getElementsByClassName("image");
+            // Loop through each image element and set pointer-events to "none"
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.pointerEvents = "none";
+            }
+
+            mouseStoppedTimer = setTimeout(mouseStoppedCallback, delay);
+        }
+        function mouseStoppedCallback() 
+        {
+            const images = track.getElementsByClassName("image");
+            // Loop through each image element and set pointer-events to "none"
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.pointerEvents = "auto";
+            }
+        }
+        function MouseMoveButton()
+        {
+            
+    
+            const images = track.getElementsByClassName("image");
+            // Loop through each image element and set pointer-events to "none"
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.pointerEvents = "none";
+            }
+
+            
+        }
+        
+
+        
+//---------------------------------------------------
+        function imageClick(imgElement, inputPercentage, movieName, movieSummary)
+        {
+            if (test == false) 
+            {
+                enlargeImg(imgElement, inputPercentage, movieName, movieSummary);
+                pageSummary.style.opacity = 0;
+                pageSummary.transition = 'opacity 0.3s ease';
+                
+            }
+            else if(test == true)
+            {
+                delargeImg(imgElement, movieName);
+            }
+        }
+
+
+        function enlargeImg(imgElement, inputPercentage, movieName, movieSummary) {
+
+            textBox.style.opacity = '1';
+            textBox.style.transition = "opacity 0.3s ease";
+            imgElement.style.transition = 'width 0.3s ease'; 
+            imgElement.style.width = '170vw'; // Set the width to cover the viewport width
+            imgElement.style.transition = 'height 0.3s ease'; 
+            imgElement.style.height = '100vh'; // Set the height to cover the viewport height
+            
+            
+            
+
+            test = true;
+            track.animate({
+                    transform: `translate(${inputPercentage}%, -50%)`
+                }, { duration: 300, fill: "forwards" });
+
+            title.textContent = movieName;
+            summaryBox.textContent = movieSummary;
+
+
+            track.style.top = "50%";
+            track.style.left = 0;
+            
+            track.style.transition = "transform 0.3s ease";
+            track.style.transition = "left 0.3s ease";
+     
+            imgElement.style.filter = 'brightness(0.5)'
+            imgElement.style.transition = "filter 0.3s ease";
+            
+
+
+
+                
+            
+        }
+        function delargeImg(imgElement, movieName) {
+   
+            test = false;
+            // showPercentage.textContent = `${test}%`;
+            textBox.style.opacity = '0';
+            textBox.style.transition = "opacity 0.3s ease";
+            imgElement.style.width = "40vmin"; // Set the width to cover the viewport width
+            imgElement.style.height = "56vmin"; // Set the height to cover the viewport height
+
+            title.textContent = movieName;
+            title.style.opacity = 1;
+
+            track.style.top = "65%";
+            track.style.left = "50%";
+            
+            track.style.transition = "transform 0.3s ease";
+            track.style.transition = "left 0.3s ease";
+            imgElement.style.transition = "width 0.3s ease";
+            imgElement.style.transition = "height 0.3s ease";
+            imgElement.style.filter = 'brightness(1)'
+            imgElement.style.transition = "filter 0.3s ease";
+            
+
+
+            
+
+
+
+                
+            
+        }
+
+
+        const handleOnDown = e => 
+        {
+            track.dataset.mouseDownAt = e.clientX
+            
+        }
+        
+        
+
+        const handleOnUp = () => {
+            track.dataset.mouseDownAt = "0";  
+            track.dataset.prevPercentage = track.dataset.percentage;
+        }
+
+        const handleOnMove = e => {
+            if(track.dataset.mouseDownAt === "0") return;
+            if(test == false)
+            {
+                
+                const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+                    maxDelta = window.innerWidth / 2;
+    
+                const percentage = (mouseDelta / maxDelta) * -100,
+                    nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+                    nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), -100);
+    
+                track.dataset.percentage = nextPercentage;
+                // showPercentage.textContent = `${nextPercentage}%`;
+
+                if(nextPercentage < -2)
+                {
+                    pageSummary.style.opacity = 0;
+                    pageSummary.transition = 'opacity 0.3s ease';
+                }
+                else
+                {
+                    pageSummary.style.opacity = 1;
+                    pageSummary.transition = 'opacity 0.3s ease';
+                }
+                track.animate({
+                    transform: `translate(${nextPercentage}%, -50%)`
+                }, { duration: 1200, fill: "forwards" });
+    
+                for(const image of track.getElementsByClassName("image")) {
+                    image.animate({
+                        objectPosition: `${100 + nextPercentage}% center`
+                    }, { duration: 1200, fill: "forwards" });
+                }
+            }
+        }
+
+
+        /* -- Had to add extra lines for touch events -- */
+
+        window.onmousedown = e => handleOnDown(e);
+
+        window.ontouchstart = e => handleOnDown(e.touches[0]);
+
+        window.onmouseup = e => handleOnUp(e);
+
+        window.ontouchend = e => handleOnUp(e.touches[0]);
+
+        window.onmousemove = e => handleOnMove(e);
+
+        window.ontouchmove = e => handleOnMove(e.touches[0]);
+    </script>
+</body>
+
+</html>
