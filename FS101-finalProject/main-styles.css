@@ -30,6 +30,35 @@
   
 }
 
+#text-container > .close-button {
+  width: 50px;
+  position: absolute;
+  top: -600px;
+  right: 10px;
+}
+#scroll-container {
+  position: absolute;
+  width: 28%;
+  height: 700px;
+  text-align: right;
+  margin-left: 70%;
+  margin-top: 10vh;
+  user-select: none;
+  background-color: rgb(14, 36, 26);
+  border: 3px solid rgb(0, 70, 49);
+  border-radius: 2%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#scroll-container
+{
+  color: white;
+  overflow:hidden;
+  overflow-y:scroll;
+}
+ul{
+  margin-right: 20px;
+}
 button{
   width: 160px;
   height: 40px;
@@ -39,6 +68,11 @@ button{
 .row{
   position: relative;
   left: 73%;
+}
+.page-buttons{
+  position: relative;
+  left: 35%;
+  margin-top: 30px;
 }
 #page-summary {
   position: absolute;
@@ -66,6 +100,15 @@ button{
   height: auto; /* Remove fixed height */
   width: 1400px;
 }
+@media (max-width: 1780px) {
+  #page-summary > p {
+    text-align: left;
+    font-size: 1.5vw; /* Use viewport width (vw) units for font size */
+    margin-right: 5%; /* Use percentage for margin */
+    height: auto; /* Remove fixed height */
+    width: 700px;
+  }
+}
 
 body {
   
@@ -73,7 +116,10 @@ body {
   width: 100vw;
   background-color: rgb(10, 17, 14);
   overflow: hidden;
-  
+  /* border: 3px solid wheat;
+  user-select: none;
+  pointer-events: none; */
+  /* z-index: -1; */
 }
 
 #image-track {
@@ -84,7 +130,7 @@ body {
   top: 65%;
   transform: translate(0%, -50%); 
   user-select: none; /* -- Prevent image highlighting -- */
-  
+  /* z-index: -2; */
 }
 
 #image-track > .image {
@@ -92,7 +138,9 @@ body {
   height: 56vmin;
   object-fit: cover;
   object-position: 100% center;
+  border: 3px solid wheat;
   /* pointer-events: none; */
+  
 }
 
 
@@ -183,3 +231,9 @@ body {
   font-size: 1.5rem;
   background-color: #222222;
 } */
+
+
+/* -------------------------------------------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------------------- */
