@@ -1,4 +1,18 @@
+#show-title, #show-summary {
+  z-index: 2;
+  font-family: 'Cormorant Garamond', serif;
 
+  user-select: none;
+  pointer-events: none;
+}
+.ghibliImage {
+  width: 400px; 
+  height: auto; 
+  position: relative;
+  left: 40%; 
+  filter: brightness(0) invert(1) grayscale(0);
+}
+/* page summartt-------------------------------------------------------------------------------------------------- */
 #text-container {
   position: absolute;
   color: rgb(255, 255, 255);
@@ -8,14 +22,10 @@
   transition: opacity 0.3s ease;
   user-select: none;
   pointer-events: none;
+  z-index: 4;
+  /* z-index: 4; */
 }
-#show-title, #show-summary {
-  z-index: 2;
-  font-family: 'Cormorant Garamond', serif;
 
-  user-select: none;
-  pointer-events: none;
-}
 #text-container > h1 {
   text-align: right;
   font-size: 5vw; /* Use viewport width (vw) units for font size */
@@ -35,7 +45,12 @@
   position: absolute;
   top: -600px;
   right: 10px;
+  
 }
+/* -------------------------------------------------------------------------------------------------- */
+
+
+/* archives-------------------------------------------------------------------------------------------------- */
 #scroll-container {
   position: absolute;
   width: 28%;
@@ -44,9 +59,9 @@
   margin-left: 70%;
   margin-top: 10vh;
   user-select: none;
-  background-color: rgb(14, 36, 26);
-  border: 3px solid rgb(0, 70, 49);
-  border-radius: 2%;
+  /* pointer-events: none; */
+  background-color: rgb(2, 10, 6);
+  border: 1px solid rgb(0, 70, 49);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -56,24 +71,41 @@
   overflow:hidden;
   overflow-y:scroll;
 }
+#scroll-container::-webkit-scrollbar{
+  width: 16px;
+}
+
+#scroll-container::-webkit-scrollbar-track{
+  background-color: #000f09;
+  border-radius: 100px;
+}
+#scroll-container::-webkit-scrollbar-thumb{
+  background-color: #00754e;
+  border-radius: 100px;
+}
+#scroll-container{
+  scrollbar-color: #002418 #e4e4e4;
+}
+/* .scroll-container::-webkit-scrollbar-thumb{
+  background-image: linear-gradient(180deg, #d0368a 0%, #708ad4  99%);
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  border-radius: 100px;
+} */
 ul{
   margin-right: 20px;
 }
+
+/* -------------------------------------------------------------------------------------------------- */
+
+
+/* movie summary-------------------------------------------------------------------------------------------------- */
 button{
   width: 160px;
   height: 40px;
   user-select: auto;
   pointer-events: auto;
 }
-.row{
-  position: relative;
-  left: 73%;
-}
-.page-buttons{
-  position: relative;
-  left: 35%;
-  margin-top: 30px;
-}
+
 #page-summary {
   position: absolute;
   color: rgb(255, 255, 255);
@@ -109,7 +141,10 @@ button{
     width: 700px;
   }
 }
+/* -------------------------------------------------------------------------------------------------- */
 
+
+/* image scrolling -------------------------------------------------------------------------------------------------- */
 body {
   
   height: 100vh;
@@ -143,15 +178,34 @@ body {
   
 }
 
-
-.ghibliImage {
-  width: 400px; /* Set the desired width */
-  height: auto; /* Maintain the aspect ratio */
-  position: relative; /* Add relative positioning to establish a context */
-  left: 40%; /* Adjust the left value to move the image to the right */
-  filter: brightness(0) invert(1) grayscale(0);
+video
+{
+  top: -100px;
+  position: absolute; /* Take it out of the document flow */
+  filter: brightness(0.65);
+  transition: filter 0.3s ease;
+  /* visibility: hidden; */
+  /* z-index: 3; */
 }
-/* Variables */
+
+/* -------------------------------------------------------------------------------------------------- */
+
+
+/* Search bar-------------------------------------------------------------------------------------------------- */
+
+.row{
+  position: relative;
+  left: 73%;
+}
+.page-buttons{
+  position: relative;
+  left: 29%;
+  margin-top: 30px;
+}
+.nav-button{
+  margin-right: 100px;
+}
+
 :root {
   --primary: #11998e;
   --secondary: #38ef7d;
@@ -159,7 +213,6 @@ body {
   --gray: #9b9b9b;
 }
 
-/* .form__group */
 .form__group {
   position: relative;
   padding: 15px 0 0;
@@ -169,7 +222,6 @@ body {
   user-select: none;
 }
 
-/* .form__field */
 .form__field {
   font-family: inherit;
   width: 100%;
@@ -220,20 +272,5 @@ body {
   box-shadow: none;
 }
 
-/* Demo */
-/* .searchbar-container {
-  font-family: 'Poppins', sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-size: 1.5rem;
-  background-color: #222222;
-} */
+/* -------------------------------------------------------------------------------------------------- */
 
-
-/* -------------------------------------------------------------------------------- */
-
-
-/* ---------------------------------------------------------------------------------- */

@@ -15,9 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 
-<!-- <h1 id="show-title">Ghibil Studio Library</h1> -->
-
-
+<body>
+    <video id="myVideo" width="3420" height="1980" autoplay muted loop>
+        <source id="videoSource" type="video/mp4">
+    </video>
+</body>
 <img class="ghibliImage" src="image/ghbli-logo.png" alt="">
 <body>
     
@@ -25,20 +27,20 @@
         <input type="input" class="form__field" placeholder="Search for movie" name="Search for movie" id='name' required />
         <label for="name" class="form__label">Search for movie</label>
         <div class="page-buttons">
-            <div class="col-md-6">
-                <button type="button" class="btn btn-outline-light" onclick="MoveToPage(0)"><i class="bi bi-play-fill"></i>Home</button>
-                <button type="button" class="btn btn-light" onclick="MoveToPage(-100)"><i class="bi bi-info-circle"></i>Archive</button>
+            <div class="col-md-12">
+                <button type="button" class="btn btn-outline-light nav-button" onclick="MoveToPage(0)"><i class="bi bi-house"></i></i>Home</button>
+                <button type="button" class="btn btn-light nav-button" onclick="MoveToPage(-100)"><i class="bi bi-info-circle"></i>Archive</button>
             </div>
         </div>
     </div>
-    
+   
     <div class="movie-container">
         <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-            <img class="image" src="https://i2.wp.com/hyperallergic.com/wp-content/uploads/2020/09/spirited-away.jpg?resize=1080%2C584&quality=100&ssl=1" draggable="false" onmousemove="MouseMove()" onclick="imageClick(this, -5, 'Spirited Away','In this animated feature by noted Japanese director Hayao Miyazaki, 10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku , who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.')" id = "image1" />
-            <img class="image" src="https://wallpaperaccess.com/full/621034.jpg" draggable="false" onmousemove="MouseMove()" onclick="imageClick(this, -16, 'Howls Moving Castle','In this animated feature by noted Japanese director Hayao Miyazaki, 10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.')" id = "image2" />
-            <img class="image" src="https://wallpaperaccess.com/full/279583.jpg" draggable="false" onmousemove="MouseMove()" onclick="imageClick(this, -30, 'My Neighbour Totoro', 'This acclaimed animated tale by director Hayao Miyazaki follows schoolgirl Satsuke and her younger sister, Mei, as they settle into an old country house with their father and wait for their mother to recover from an illness in an area hospital. As the sisters explore their new home, they encounter and befriend playful spirits in their house and the nearby forest, most notably the massive cuddly creature known as Totoro.')" id = "image3" />
-            <img class="image" src="https://getwallpapers.com/wallpaper/full/e/4/8/1521394-full-size-studio-ghibli-phone-wallpaper-1920x1080.jpg" draggable="false" onmousemove="MouseMove()"onclick="imageClick(this, -45,'Kikis Delivery Service','In this anime feature, 13-year-old Kiki moves to a seaside town with her talking cat, Jiji, to spend a year alone, in accordance with her village tradition for witches in training. After learning to control her broomstick, Kiki sets up a flying courier service and soon becomes a fixture in the community. But when the insecure young witch begins questioning herself and loses her magic abilities, she must overcome her self-doubt to get her powers back.')" id = "image4" />
-            <img class="image" src="https://images-sg.girlstyle.com/wp-content/uploads/2020/10/ponyo040.jpg?auto=format&w=1053" draggable="false" onmousemove="MouseMove()" onclick="imageClick(this, -61, 'Ponyo','During a forbidden excursion to see the surface world, a goldfish princess encounters a human boy named Sosuke, who gives her the name Ponyo. Ponyo longs to become human, and as her friendship with Sosuke grows, she becomes more humanlike. Ponyo father brings her back to their ocean kingdom, but so strong is Ponyo wish to live on the surface that she breaks free, and in the process, spills a collection of magical elixirs that endanger Sosuke village.')" id = "image5" />
+            <img class="image" src="https://i2.wp.com/hyperallergic.com/wp-content/uploads/2020/09/spirited-away.jpg?resize=1080%2C584&quality=100&ssl=1" draggable="false" onmousemove="MouseMove()" onclick="imageClick('Video/Spirited Away - Official Trailer.mp4',this, -5, 'Spirited Away','In this animated feature by noted Japanese director Hayao Miyazaki, 10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku , who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.')" id = "image1" />
+            <img class="image" src="https://wallpaperaccess.com/full/621034.jpg" draggable="false" onmousemove="MouseMove()" onclick="imageClick('Video/Howl\'s Moving Castle - Official Trailer.mp4',this, -16, 'Howl\'s Moving Castle','In this animated feature by noted Japanese director Hayao Miyazaki, 10-year-old Chihiro and her parents stumble upon a seemingly abandoned amusement park. After her mother and father are turned into giant pigs, Chihiro meets the mysterious Haku, who explains that the park is a resort for supernatural beings who need a break from their time spent in the earthly realm, and that she must work there to free herself and her parents.')" id = "image2" />
+            <img class="image" src="https://wallpaperaccess.com/full/279583.jpg" draggable="false" onmousemove="MouseMove()" onclick="imageClick('Video/My Neighbor Totoro - Official Trailer.mp4',this, -30, 'My Neighbour Totoro', 'This acclaimed animated tale by director Hayao Miyazaki follows schoolgirl Satsuke and her younger sister, Mei, as they settle into an old country house with their father and wait for their mother to recover from an illness in an area hospital. As the sisters explore their new home, they encounter and befriend playful spirits in their house and the nearby forest, most notably the massive cuddly creature known as Totoro.')" id = "image3" />
+            <img class="image" src="https://getwallpapers.com/wallpaper/full/e/4/8/1521394-full-size-studio-ghibli-phone-wallpaper-1920x1080.jpg" draggable="false" onmousemove="MouseMove()"onclick="imageClick('Video/Kiki\'s Delivery Service - Official Trailer.mp4',this, -45,'Kiki\'s Delivery Service','In this anime feature, 13-year-old Kiki moves to a seaside town with her talking cat, Jiji, to spend a year alone, in accordance with her village tradition for witches in training. After learning to control her broomstick, Kiki sets up a flying courier service and soon becomes a fixture in the community. But when the insecure young witch begins questioning herself and loses her magic abilities, she must overcome her self-doubt to get her powers back.')" id = "image4" />
+            <img class="image" src="https://images-sg.girlstyle.com/wp-content/uploads/2020/10/ponyo040.jpg?auto=format&w=1053" draggable="false" onmousemove="MouseMove()" onclick="imageClick('Video/Ponyo - Official Trailer.mp4',this, -61, 'Ponyo','During a forbidden excursion to see the surface world, a goldfish princess encounters a human boy named Sosuke, who gives her the name Ponyo. Ponyo longs to become human, and as her friendship with Sosuke grows, she becomes more humanlike. Ponyo father brings her back to their ocean kingdom, but so strong is Ponyo wish to live on the surface that she breaks free, and in the process, spills a collection of magical elixirs that endanger Sosuke village.')" id = "image5" />
             
 
         </div>
@@ -113,6 +115,51 @@
         "The Cat Returns",
         "Nausicaä of the Valley of the Wind",
         "When Marnie Was There",
+        "Spirited Away",
+        "My Neighbor Totoro",
+        "Princess Mononoke",
+        "Howl's Moving Castle",
+        "Ponyo",
+        "Kiki's Delivery Service",
+        "Castle in the Sky",
+        "Grave of the Fireflies",
+        "The Wind Rises",
+        "Porco Rosso",
+        "The Secret World of Arrietty",
+        "Whisper of the Heart",
+        "The Cat Returns",
+        "Nausicaä of the Valley of the Wind",
+        "When Marnie Was There",
+        "Spirited Away",
+        "My Neighbor Totoro",
+        "Princess Mononoke",
+        "Howl's Moving Castle",
+        "Ponyo",
+        "Kiki's Delivery Service",
+        "Castle in the Sky",
+        "Grave of the Fireflies",
+        "The Wind Rises",
+        "Porco Rosso",
+        "The Secret World of Arrietty",
+        "Whisper of the Heart",
+        "The Cat Returns",
+        "Nausicaä of the Valley of the Wind",
+        "When Marnie Was There",
+        "Spirited Away",
+        "My Neighbor Totoro",
+        "Princess Mononoke",
+        "Howl's Moving Castle",
+        "Ponyo",
+        "Kiki's Delivery Service",
+        "Castle in the Sky",
+        "Grave of the Fireflies",
+        "The Wind Rises",
+        "Porco Rosso",
+        "The Secret World of Arrietty",
+        "Whisper of the Heart",
+        "The Cat Returns",
+        "Nausicaä of the Valley of the Wind",
+        "When Marnie Was There",
         ];
         function generateMovieList() {
         const movieList = document.getElementById("movie-list");
@@ -138,89 +185,111 @@
 
         // Call the function to generate the movie list
         generateMovieList();
-        function MoveToPage(percent)
-        {
-            track.animate({
-                transform: `translate(${percent}%, -50%)`
-            }, { duration: 300, fill: "forwards" });
-            if(percent === 0)
-            {
-                track.dataset.prevPercentage = 0;
-                pageSummary.style.opacity = 1;
-                pageSummary.transition = 'opacity 0.3s ease';
-                scrollBox.style.opacity = 0;
-                scrollBox.transition = 'opacity 0.3s ease';
-            }
-            else if(percent === -100)
-            {
 
-                track.dataset.prevPercentage = -100;
-                pageSummary.style.opacity = 0;
-                pageSummary.transition = 'opacity 0.3s ease';
-                scrollBox.style.opacity = 1;
-                scrollBox.transition = 'opacity 0.3s ease';
-            }
 
-          
-        }
-
-        function StopSideScroll(bool)
-        {
-            test=bool;
-        }
-        function MouseMove()
-        {
-            clearTimeout(mouseStoppedTimer);
+    function changeVideoSource(newSource) {
+    const videoElement = document.getElementById('myVideo');
+    const videoSourceElement = document.getElementById('videoSource');
     
-            const images = track.getElementsByClassName("image");
-            // Loop through each image element and set pointer-events to "none"
-            for (let i = 0; i < images.length; i++) {
-                images[i].style.pointerEvents = "none";
-            }
+    // Set the new video source
+    videoSourceElement.src = newSource;
 
-            mouseStoppedTimer = setTimeout(mouseStoppedCallback, delay);
-        }
-        function mouseStoppedCallback() 
-        {
-            const images = track.getElementsByClassName("image");
-            // Loop through each image element and set pointer-events to "none"
-            for (let i = 0; i < images.length; i++) {
-                images[i].style.pointerEvents = "auto";
-            }
-        }
-        function MouseMoveButton()
-        {
-            
-    
-            const images = track.getElementsByClassName("image");
-            // Loop through each image element and set pointer-events to "none"
-            for (let i = 0; i < images.length; i++) {
-                images[i].style.pointerEvents = "none";
-            }
+    // Reload the video to apply the new source
+    videoElement.load();
+    }
 
-            
+    // Example: Change the video source dynamically
+    const newVideoSource = 'Video/Ghibli\'s mashup music.mp4';
+    // const newVideoSource = 'Video/Spirited Away - Official Trailer.mp4';
+    changeVideoSource(newVideoSource);
+
+
+    function MoveToPage(percent)
+    {
+        track.animate({
+            transform: `translate(${percent}%, -50%)`
+        }, { duration: 300, fill: "forwards" });
+        if(percent === 0)
+        {
+            track.dataset.prevPercentage = 0;
+            pageSummary.style.opacity = 1;
+            pageSummary.transition = 'opacity 0.3s ease';
+            scrollBox.style.opacity = 0;
+            scrollBox.transition = 'opacity 0.3s ease';
         }
+        else if(percent === -100)
+        {
+
+            track.dataset.prevPercentage = -100;
+            pageSummary.style.opacity = 0;
+            pageSummary.transition = 'opacity 0.3s ease';
+
+            scrollBox.style.pointerEvents = 'auto'
+            scrollBox.style.opacity = 1;
+            scrollBox.transition = 'opacity 0.3s ease';
+        }
+        else{
+            scrollBox.style.pointerEvents = 'none'
+        }
+
+        
+    }
+
+    function StopSideScroll(bool)
+    {
+        test=bool;
+    }
+    function MouseMove()
+    {
+        clearTimeout(mouseStoppedTimer);
+
+        const images = track.getElementsByClassName("image");
+        // Loop through each image element and set pointer-events to "none"
+        for (let i = 0; i < images.length; i++) {
+            images[i].style.pointerEvents = "none";
+        }
+
+        mouseStoppedTimer = setTimeout(mouseStoppedCallback, delay);
+    }
+    function mouseStoppedCallback() 
+    {
+        const images = track.getElementsByClassName("image");
+        // Loop through each image element and set pointer-events to "none"
+        for (let i = 0; i < images.length; i++) {
+            images[i].style.pointerEvents = "auto";
+        }
+    }
+    function MouseMoveButton()
+    {
+        
+
+        const images = track.getElementsByClassName("image");
+        // Loop through each image element and set pointer-events to "none"
+        for (let i = 0; i < images.length; i++) {
+            images[i].style.pointerEvents = "none";
+        }
+
+        
+    }
         
 
         
 //---------------------------------------------------
-        function imageClick(imgElement, inputPercentage, movieName, movieSummary)
+        function imageClick(trailerName,imgElement, inputPercentage, movieName, movieSummary)
         {
             if (test == false) 
             {
-                enlargeImg(imgElement, inputPercentage, movieName, movieSummary);
+                enlargeImg(trailerName,imgElement, inputPercentage, movieName, movieSummary);
                 pageSummary.style.opacity = 0;
                 pageSummary.transition = 'opacity 0.3s ease';
+                scrollBox.style.opacity = 0;
+                scrollBox.transition = 'opacity 0.3s ease';
                 
-            }
-            else if(test == true)
-            {
-                //delargeImg();
             }
         }
 
 
-        function enlargeImg(imgElement, inputPercentage, movieName, movieSummary) {
+        function enlargeImg(trailerName,imgElement, inputPercentage, movieName, movieSummary) {
 
             textBox.style.opacity = '1';
             textBox.style.transition = "opacity 0.3s ease";
@@ -250,7 +319,9 @@
             imgElement.style.filter = 'brightness(0.5)'
             imgElement.style.transition = "filter 0.3s ease";
             
-
+            const videoElement = document.getElementById('myVideo');
+            changeVideoSource(trailerName);
+            videoElement.style.zIndex = '3';
 
 
                 
@@ -279,7 +350,10 @@
             imgElement.style.transition = "filter 0.3s ease";
             
 
-
+            const videoElement = document.getElementById('myVideo');
+            const newVideoSource = 'Video/Ghibli\'s mashup music.mp4';
+            changeVideoSource(newVideoSource);
+            videoElement.style.zIndex = '0';
             
 
 
