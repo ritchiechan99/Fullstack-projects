@@ -1,4 +1,5 @@
 #show-title, #show-summary {
+  display: flex;
   z-index: 2;
   font-family: 'Cormorant Garamond', serif;
 
@@ -6,7 +7,8 @@
   pointer-events: none;
 }
 .ghibliImage {
-  width: 400px; 
+  display: flex;
+  width: 40vmin; 
   height: auto; 
   position: relative;
   left: 40%; 
@@ -40,12 +42,18 @@
   
 }
 
-#text-container > .close-button {
+/* #text-container > .close-button {
   width: 50px;
   position: absolute;
   top: -600px;
   right: 10px;
   
+} */
+#text-container > .close-button {
+  width: 50px;
+  position: fixed;
+  top: 5%; /* Adjust this percentage as needed */
+  right: 2%;
 }
 /* -------------------------------------------------------------------------------------------------- */
 
@@ -200,7 +208,7 @@ video
 .page-buttons{
   position: relative;
   left: 29%;
-  margin-top: 30px;
+  margin-top: 5vmin;
 }
 .nav-button{
   margin-right: 100px;
@@ -217,14 +225,14 @@ video
   position: relative;
   padding: 15px 0 0;
   margin-top: 10px;
-  width: 50%;
+  width: 110vmin;
   left: 25%;
   user-select: none;
 }
 
 .form__field {
   font-family: inherit;
-  width: 100%;
+  width:  110vmin;
   border: 0;
   border-bottom: 2px solid var(--gray);
   outline: 0;
@@ -258,7 +266,7 @@ video
 /* .form__field:focus */
 .form__field:focus {
   padding-bottom: 6px;
-  font-weight: 700;
+  font-weight: 700vmin;
   border-width: 3px;
   border-image: linear-gradient(to right, var(--primary), var(--secondary));
   border-image-slice: 1;
