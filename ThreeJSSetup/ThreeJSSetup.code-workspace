@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../../../Downloads/web-3dmodel-threejs-main/web-3dmodel-threejs-main/models"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "ThreeJSSetup"
+	}
+}
