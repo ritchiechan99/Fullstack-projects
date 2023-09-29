@@ -20,46 +20,126 @@ let object;
 //OrbitControls allow the camera to move around the scene
 let controls;
 
-let objName = 'tiny_isometric_room';
+let objName = 'room';
 //Set which object to render
 let objToRender = objName;
 
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
+
+const texture = new THREE.TextureLoader().load('./models/room/textures/wp9450529.png')
+
+// const cubeloader = new THREE.CubeTextureLoader();
+// const texture = cubeloader.load([
+//     'right.png', 'left.png',
+//     'top.png', 'bottom.png',
+//     'front.png', 'back.png'
+// ]);
+
+// const skyboxMaterial = new THREE.ShaderMaterial({
+//   uniforms: {
+//       tCube: { value: texture }
+//   },
+//   vertexShader: `
+//       varying vec3 vWorldPosition;
+//       void main() {
+//           vec4 worldPosition = modelMatrix * vec4(position, 1.0);
+//           vWorldPosition = worldPosition.xyz;
+//           gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+//       }
+//   `,
+//   fragmentShader: `
+//       uniform samplerCube tCube;
+//       varying vec3 vWorldPosition;
+//       void main() {
+//           gl_FragColor = textureCube(tCube, vWorldPosition);
+//       }
+//   `
+// });
+// Invert the skybox to ensure it's inside out
+//skyboxMaterial.side = THREE.BackSide;
+
+// Create a box geometry for the skybox
+//const skyboxGeometry = new THREE.BoxGeometry(1000, 1000, 1000); // Adjust the size as needed
+
+// Create a mesh using the geometry and skybox material
+//const skybox = new THREE.Mesh(skyboxGeometry, skyboxMaterial);
+
+// Add the skybox to the scene
+//scene.add(skybox);
 loader.load(
   `models/${objToRender}/scene.gltf`,
   function (gltf) {
     // If the file is loaded, add it to the scene
     object = gltf.scene;
     
+    // object.traverse(function (child) {
+    //   if (child.isMesh && child.name === "citybackground") { // Target only the "citybackground" object
+    //     const materials = Array.isArray(child.material) ? child.material : [child.material];
+    //     for (const material of materials) {
+    //       if (material) {
+    //         material.metalness = 0; // Set metalness to 0
+    //         material.emissiveIntensity = 1; 
+    //       }
+    //     }
+    //   }
+    // });
+
+    object.traverse(function (child) 
+    {
+      if (child.isMesh)
+      {
+        if (child.name !== "citybackground")
+        {
+          const materials = Array.isArray(child.material) ? child.material : [child.material];
+          for (const material of materials) {
+            if (material) {
+              const newMaterial = new THREE.MeshStandardMaterial({
+                emissive: 0x020412, // Set the desired emissive color
+                emissiveIntensity: 0.0, // Adjust the emissive intensity as needed
+                metalness: 0, // Set metalness to 0
+                map: texture,
+              });
+              material.dispose(); // Dispose of the old material
+              child.material = newMaterial; // Apply the new material to the mesh
+            }
+          }
+        }
+        
+      }
+    });
+
+
     scene.add(object);
     // Find the object by name
-    const rayLowpolyObject = gltf.scene.getObjectByName("ray_lowpoly_ray_material_0"); //get individual material in tiny_isometric_room
-    if (rayLowpolyObject) {
+    const window = gltf.scene.getObjectByName("Window001"); //get individual material in tiny_isometric_room
+    if (window) {
       // The object with the name "ray_lowpoly" was found
-      console.log("Found object with name 'ray_lowpoly':", rayLowpolyObject);
+      console.log("Found object with name 'window':", window);
 
       // Replace the existing material with a new material
       const newMaterial = new THREE.MeshStandardMaterial({
         emissive: 0x0F2C59, // Set the desired emissive color
-        emissiveIntensity: 2.0, // Adjust the emissive intensity as needed
+        emissiveIntensity: 1.0, // Adjust the emissive intensity as needed
         transparent: true, // Enable transparency
         opacity: 0.1,
         // You can set other material properties here as needed
       });
       
 
-      rayLowpolyObject.material = newMaterial;
+      window.material = newMaterial;
 
-      // If you want to enable shadows for the object with the new material, you can do this:
-      rayLowpolyObject.castShadow = true;
-      rayLowpolyObject.receiveShadow = true;
+
+      window.castShadow = true;
+      window.receiveShadow = true;
     } else {
       // Object with the name "ray_lowpoly" was not found
-      console.log("Object with name 'ray_lowpoly' not found.");
+      console.log("Object with name 'window' not found. 1");
     }
-    
+    gltf.scene.traverse(function(window){
+      console.log(window.name);
+  });
   },
   function (xhr) {
     // While it is loading, log the progress
@@ -105,16 +185,16 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.getElementById("container3D").appendChild(renderer.domElement);
 
 //Set how far the camera will be from the 3D model
-camera.position.z = objToRender === objName ? 500 : 500;
-
+camera.position.z = objToRender === objName ? 25 : 500;
+//camera.position.z = 0;
 //Add lights to the scene, so we can actually see the 3D model
 const topLight = new THREE.DirectionalLight(0xF4EAD5, 1); // (color, intensity)
 // topLight.position.set(500, 500, 500) //top-left-ish
 // topLight.castShadow = true;
 scene.add(topLight);
 
-// const ambientLight = new THREE.AmbientLight(0xF4EAD5, objToRender === objName ? 1 : 2);
-// scene.add(ambientLight);
+const ambientLight = new THREE.AmbientLight(0xF4EAD5, objToRender === objName ? 0.5 : 2);
+scene.add(ambientLight);
 
 // Function to update the displayed position and rotation
 
@@ -151,6 +231,7 @@ function animate() {
     object.rotation.y = -3 + mouseX / window.innerWidth * 3;
     object.rotation.x = -1.2 + mouseY * 2.5 / window.innerHeight;
   }
+
 
   updateDisplay();
   renderer.render(scene, camera);
