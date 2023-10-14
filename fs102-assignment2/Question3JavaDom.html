@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 3 Javascript DOM</title>
+</head>
+<body>
+    <div id="myDiv">
+        <head>Hello world</head>
+    </div>
+    <Button id="click">Click me</Button>
+    <script>
+        const button = document.getElementById("click");
+        const myDiv = document.getElementById("myDiv");
+        var toggle;
+        button.addEventListener("click", function() {
+            toggle = !toggle;
+
+            if(toggle)
+                myDiv.style.opacity = 0;
+            else
+                myDiv.style.opacity = 1;
+        });
+
+       
+    </script>
+</body>
+</html>

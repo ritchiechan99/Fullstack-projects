@@ -7,6 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <title>A simple Three.JS App</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -18,12 +19,22 @@
       <div id="container3D"></div>
     </main>
     <body>
+      <video id="video" autoplay loop style="display: none; width: 1px; height: 1px;">
+        <source src="sdv.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
       <div class="show-position">
         <h1>Object Position and Rotation</h1>
         <p>Position (xyz): <span id="position"></span></p>
         <p>Rotation (zyx Euler angles): <span id="rotation"></span></p>
+        <p>Zoom : <span id="zoom"></span></p>
       </div>
-      <h1 class="textOverlay">This is my three.js web</h1>
+      <div class="title-header">
+        <div class="overlay-container">
+          <h1 class="textOverlay">Ritchies's Portfolio</h1>
+          <h3 class="pOverlay">Game Programmer/Artist</h3>
+        </div>
+      </div>
     </body>
     <script type="module" src="js/main.js"></script>
   </body>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 8 Javascript DOM</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+
+
+<body>
+
+  <div>
+    <h2>Product Table</h2>
+    <p>Key in your input to filter the table:</p>
+
+    <input type="text" id="myinput" placeholder="Search..." title="Type in something">
+
+    <p>Click on the header of a column to sort the table:</p>
+
+    <table border="1">
+      <thead><tr>
+        <th><span id="name" class="w3-button table-column">Name <i class="caret"></i></span></th>
+        <th><span id="quantity" class="w3-button table-column">Quantity <i class="caret"></i></span></th>
+        <th><span id="price" class="w3-button table-column">Price <i class="caret"></i></span></th>
+        <th><span id="expiry" class="w3-button table-column">Expiry Date <i class="caret"></i></span></th>
+      </tr></thead>
+      <tbody id="mytable"></tbody>
+    </table>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      var table = $('#mytable');
+      var input = $('#myinput');
+      var tableData = [{name: 'Onion', quantity: 29, price: 1.2, expiry: '2021-09-12'}, {name: 'Apple', quantity: 55, price: 3.3, expiry: '2021-09-22'}, {name: 'Potato', quantity: 25, price: 2.5, expiry: '2021-09-18'}, {name: 'Carrot', quantity: 8, price: 0.8, expiry: '2021-09-25'}];
+      var caretUpClassName = 'fa fa-caret-up';
+      var caretDownClassName = 'fa fa-caret-down';
+    
+      const sort_by = (field, reverse, primer) => {
+        const key = primer ?
+          function(x) {
+            return primer(x[field]);
+          } :
+          function(x) {
+            return x[field];
+          };
+    
+        reverse = !reverse ? 1 : -1;
+    
+        return function(a, b) {
+          return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
+        };
+      };
+    
+      function clearArrow() {
+        let carets = $('.caret');
+        carets.removeClass('caret-active');
+      }
+    
+      function toggleArrow(event) {
+        let element = $(event.target);
+        let caret, field, reverse;
+        if (element.is('span')) {
+          caret = element.find('.caret');
+          field = element.attr('id');
+        } else {
+          caret = element;
+          field = element.parent().attr('id');
+        }
+    
+        clearArrow();
+        if (caret.hasClass(caretUpClassName)) {
+          caret.addClass('caret-active');
+          reverse = false;
+        } else {
+          reverse = true;
+          caret.addClass('caret-active');
+        }
+    
+        tableData.sort(sort_by(field, reverse));
+        populateTable();
+      }
+    
+      function populateTable() {
+        table.empty();
+        $.each(tableData, function(index, data) {
+          let row = $('<tr></tr>');
+          let name = $('<td></td>').text(data.name);
+          let quantity = $('<td></td>').text(data.quantity);
+          let price = $('<td></td>').text(data.price);
+          let expiry = $('<td></td>').text(data.expiry);
+          row.append(name, quantity, price, expiry);
+          table.append(row);
+        });
+    
+        filterTable();
+      }
+    
+      function filterTable() {
+        let filter = input.val().toUpperCase();
+        rows = table.find('tr');
+        let flag = false;
+    
+        rows.each(function() {
+          let cells = $(this).find('td');
+          cells.each(function() {
+            let cell = $(this);
+            if (cell.text().toUpperCase().indexOf(filter) > -1) {
+              if (filter) {
+                cell.css('background-color', 'yellow');
+              } else {
+                cell.css('background-color', '');
+              }
+              flag = true;
+            } else {
+              cell.css('background-color', '');
+            }
+          });
+    
+          if (flag) {
+            $(this).show();
+          } else {
+            $(this).hide();
+          }
+    
+          flag = false;
+        });
+      }
+    
+      populateTable();
+    
+      let tableColumns = $('.table-column');
+    
+      tableColumns.click(function(event) {
+        toggleArrow(event);
+      });
+    
+      input.keyup(function(event) {
+        filterTable();
+      });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 2 Javascript DOM</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Milk</li>
+    </ul>
+
+    <script>
+        const unorderedList = document.getElementById("myList");
+        const newListItem = document.createElement("li");
+        newListItem.appendChild(document.createTextNode("Bread"))
+        unorderedList.appendChild(newListItem);
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 3 Javascript DOM</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <p>This paragraph has a fast animation.</p>
+    <button>click me</button>
+    <script>
+        $("button").last().on("click", function() {
+            $("p").fadeToggle("fast");
+        });
+    </script>
+</body>
+</html>
