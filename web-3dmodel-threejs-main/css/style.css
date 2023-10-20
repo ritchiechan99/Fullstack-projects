@@ -1,19 +1,175 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
+
+
+html {
+	height: 100%;
+}
 html, body{
   font-family: "Montserrat", sans-serif;
 }
 
-body {
-  margin: 0;
-  background-color: #000;
+
+#nav-header {
+  position: fixed;
+	width: 100%;
+	height: 150px;
+  bottom: 0;
+	background: #000000c0;
+	opacity: 0;
+  transition: opacity 2s;
+	overflow: hidden;
+	-webkit-box-shadow: #333 1px 3px 4px;
+	-moz-box-shadow: #333 1px 3px 4px;
+	box-shadow: #333 1px 3px 4px;
+  z-index: 2;
 }
 
+h1 {
+	letter-spacing: 4px;
+	padding: 1em;
+	color: white;
+	/* background-color: #17141d; */
+	opacity: 0.8;
+}
+
+svg.line-top {
+	width: 100%;
+	background-color:  #0000002c;
+}
+svg.line-bottom {
+	width: 100%;
+}
+.menu {
+	width: 750px;
+	margin: 0 auto;
+  margin-top: 35px;
+}
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+ul li {
+	margin: 0;
+	padding: 10px 0 10px 0;
+	width: 25%;
+	height: 10px;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: white;
+	cursor: pointer;
+	display: inline-block;
+	letter-spacing: 3.5px;
+	transition: all 0.5s ease-out;
+}
+
+li.active {
+	color: rgb(0, 247, 255);
+	transform: scale(1.1);
+}
+
+polygon {
+	stroke-width: 2px;
+	stroke: rgb(0, 117, 117);
+	fill: rgb(0, 116, 116);
+}
+
+@media (max-device-width: 991px) {
+	.header {
+		height: 64px;
+	}
+
+	body {
+		font-size: 0.4em;
+	}
+	.content {
+		height: calc(100% - 64px);
+	}
+}
+
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+#console p {
+  font-family: monospace;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  color: rgb(0, 255, 234);
+  text-shadow: 0px 0px 10px rgb(0, 53, 54);
+  z-index: 1;
+}
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 2s;
+  pointer-events: none;
+}
+.msg {
+  font-family: monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  /* font-size: 5vh; */
+  padding-top: 5vh;
+  background: rgba(255, 0, 0, 0.356);
+  box-shadow: 0 0 30px red;
+  text-shadow: 0 0 20px white;
+  color: white;
+  padding : 20px;
+  position: absolute;
+  left: 50%;
+  margin-left: -10vw;
+  top: 50%;
+  margin-top: -5vh;
+  text-align: center;
+  min-width: 300px;
+  animation-name: blink;
+  animation-duration: 0.6s;
+  animation-iteration-count: 7;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+  
+  z-index: 2;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 2s ease-in-out; /* Include a transition for the fade-out effect */
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 .show-position
 {
   margin-top: 3em;
   text-align: center;
   color: white;
-  z-index: 1;
+  z-index: -1;
 }
 
 header h1 {
@@ -27,7 +183,6 @@ header h1 {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
 }
 
 
@@ -36,14 +191,15 @@ header h1 {
   position: absolute;
   text-align: center;
   top: 50%;
-  left: 50%;
+  left: 10%;
   z-index: 1;
-  width: 27%; 
+  width: 400px; 
   background-color: rgba(0, 0, 0, 0.5); 
   color: rgb(255, 255, 255);
   padding: 2px; 
+  border: 1px solid rgb(0, 255, 242);
 }
-  
+
 .overlay-container {
   position: relative; 
   
@@ -61,4 +217,23 @@ header h1 {
   color: rgb(255, 255, 255);
 }
   
+.btn {
+  padding: 10px 20px; /* Adjust padding as needed */
+  font-weight: bold;
+  background-color: transparent;
+  border:none;
+  color: #00ffff; /* Text color */
+  font-size: 24px; /* Adjust font size as needed */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
 
+.btn:hover {
+  color: #fff; /* Text color on hover */
+}
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s; /* Adjust the duration as needed */
+}

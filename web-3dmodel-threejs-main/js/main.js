@@ -4,6 +4,12 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/controls/OrbitControls.js";
 // To allow for importing the .gltf file
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { EffectComposer } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/RenderPass.js";
+import { ShaderPass } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/ShaderPass.js";
+import { UnrealBloomPass } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/postprocessing/UnrealBloomPass.js";
+import { CopyShader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/shaders/CopyShader.js";
+import { FXAAShader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/shaders/FXAAShader.js";
 
 import {applyCustomMaterials} from './applyCustomMaterials.js';
 import {debugPositionRotation} from './debugPositionRotation.js';
@@ -19,10 +25,11 @@ let mouseY = window.innerHeight / 2;
 
 let object;
 let controls;
-const renderer = new THREE.WebGLRenderer({ alpha: true }); //Alpha: true allows for the transparent background
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
+document.body.appendChild(renderer.domElement);
 
-
+const ZoomBtn = document.querySelector(".btn");
 
 
 let objName = 'room';
@@ -30,6 +37,30 @@ let objToRender = objName;
 //Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
+
+
+
+const zoomInTimeline = (duration, x, y, z, zoomOutFactor = 0) => {
+	let tl = gsap
+		.timeline({ defaults: { duration:duration,ease: "Power2.easeOut"} })
+		.to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
+};
+
+
+
+ // Adjust the lerp factor as needed
+ const lerpFactor = 0.009;
+ var targetPosition;
+function lerpTarget() {
+  
+  // Linearly interpolate the target position towards (0, 0, 0)
+  controls.target.lerp(targetPosition, lerpFactor);
+
+  // If the target position hasn't reached the destination, continue the lerp
+  if (controls.target.distanceTo(targetPosition) > 0.001) {
+    requestAnimationFrame(lerpTarget);
+  }
+}
 
 
 
@@ -49,10 +80,43 @@ loader.load(
     // If there is an error, log it
     console.error(error);
   }
+
+  
 );
 
 
 
+var clicks;
+
+ZoomBtn.addEventListener("click", () => {
+  targetPosition = new THREE.Vector3(-20, -2, -15);
+  zoomInTimeline(8, 3, 2, 22, 0);
+  lerpTarget();
+  var header = document.getElementById("nav-header");
+  header.style.opacity = 1;
+  // Hide the element with class "title-header" by adding a CSS class
+  const titleHeader = document.querySelector(".title-header");
+  if (titleHeader) {
+    titleHeader.classList.add("fade-out");
+  }
+});
+// ZoomBtn.addEventListener("click", () => {
+
+//   clicks = !clicks;
+//   // Start the lerp animation
+//   if(clicks)
+//   {
+//     targetPosition = new THREE.Vector3(-20,-2,-15);
+//     zoomInTimeline(15,3, 2, 22, 0);
+    
+//   }
+//   else
+//   {
+//     targetPosition = new THREE.Vector3(-90,0,0);
+// 	  zoomInTimeline(1.5,-1, -3, -15, 1);
+//   }
+//    lerpTarget();
+// });
 
 
 //Add the renderer to the DOM
@@ -79,13 +143,13 @@ if (objToRender === objName) {
   // Enable damping for smoother movement after mouse release
   controls.enableDamping = true;
   controls.dampingFactor = 0.05; // Adjust the damping factor as needed
-  controls.enabled = false;
-  const targetPosition = new THREE.Vector3(-4.41, 0.72, 7.02);
+  // controls.enabled = false;
+  const targetPosition = new THREE.Vector3(-8, 0.72, 45);
   controls.target.copy(targetPosition);
 
   // Set the polar and azimuthal angles in degrees
-  const polarAngleDegrees = 87.02;
-  const azimuthalAngleDegrees = 40.68;
+  const polarAngleDegrees = 90;
+  const azimuthalAngleDegrees = 0;
 
   // Convert degrees to radians
   const polarAngleRadians = THREE.MathUtils.degToRad(polarAngleDegrees);
@@ -106,17 +170,33 @@ if (objToRender === objName) {
 }
 
 
+
 //Render the scene
-function animate() {
-  requestAnimationFrame(animate);
-  //Here we could add some code to update the scene, adding some automatic movement
-  controls.update();
 
+function addBloomEffect(scene, camera, renderer) {
+  const renderPass = new RenderPass(scene, camera);
+  const bloomPass = new UnrealBloomPass(
+    new THREE.Vector2(window.innerWidth, window.innerHeight),
+    2.5, // Strength of the bloom effect
+    1.4, // The radius
+    0.75 // The threshold
+  );
+  const composer = new EffectComposer(renderer);
+  composer.addPass(renderPass);
+  composer.addPass(bloomPass);
+ 
+  function animate() {
+    requestAnimationFrame(animate);
+    composer.render();
+    controls.update();
+    debugPositionRotation(controls);
+  }
 
-
-  debugPositionRotation(controls);
-  renderer.render(scene, camera);
+  return animate;
 }
+
+const animate = addBloomEffect(scene, camera, renderer);
+
 
 window.addEventListener("resize", function () {
   camera.aspect = window.innerWidth / window.innerHeight;
