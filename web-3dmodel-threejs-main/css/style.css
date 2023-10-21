@@ -71,8 +71,8 @@ li.active {
 
 polygon {
 	stroke-width: 2px;
-	stroke: rgb(0, 117, 117);
-	fill: rgb(0, 116, 116);
+	stroke: rgb(0, 43, 47);
+	fill: rgb(0, 251, 255);
 }
 
 @media (max-device-width: 991px) {

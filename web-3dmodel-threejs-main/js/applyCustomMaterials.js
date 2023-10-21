@@ -377,7 +377,7 @@ function applyCustomMaterials(object) {
       } else if (child.name == "wall_lamp_a") {
         applyMaterialWithoutTexture(child, 1, 1, 0.5, 1.6,0x303030);
       } else if (child.name == "vs_apartment_tech_det_b") {
-        BloomMaterial(child,0x97FEED,0.9);
+        BloomMaterial(child,0x97FEED,0.7);
       } else if (child.name == "submesh_02_LOD_1008") {
         BloomMaterial(child,0xD80032,0.9);
       } else if (child.name == "submesh_02_LOD_1025") {

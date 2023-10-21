@@ -29,7 +29,6 @@ const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const ZoomBtn = document.querySelector(".btn");
 
 
 let objName = 'room';
@@ -41,29 +40,54 @@ const loader = new GLTFLoader();
 
 
 const zoomInTimeline = (duration, x, y, z, zoomOutFactor = 0) => {
-	let tl = gsap
-		.timeline({ defaults: { duration:duration,ease: "Power2.easeOut"} })
-		.to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
+  // Cancel the current animation (if any)
+  gsap.killTweensOf(camera.position);
+  
+  // Calculate the current position as the starting point
+  const currentPosition = { x: camera.position.x, y: camera.position.y, z: camera.position.z };
+  
+  gsap.to(currentPosition, {
+    duration,
+    x,
+    y,
+    z: z + zoomOutFactor,
+    ease: "Power2.easeOut",
+    onUpdate: () => {
+      // Update camera position during the animation
+      camera.position.set(currentPosition.x, currentPosition.y, currentPosition.z);
+      controls.target.lerp(targetPosition, lerpFactor);
+    },
+  });
 };
 
 
+// const zoomInTimeline = (duration, x, y, z, zoomOutFactor = 0) => {
+// 	let tl = gsap
+// 		.timeline({ defaults: { duration:duration,ease: "Power2.easeOut"} })
+// 		.to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
+// };
 
  // Adjust the lerp factor as needed
  const lerpFactor = 0.009;
  var targetPosition;
-function lerpTarget() {
-  
-  // Linearly interpolate the target position towards (0, 0, 0)
-  controls.target.lerp(targetPosition, lerpFactor);
 
-  // If the target position hasn't reached the destination, continue the lerp
-  if (controls.target.distanceTo(targetPosition) > 0.001) {
-    requestAnimationFrame(lerpTarget);
-  }
-}
+ let lerpAnimationId = null;
 
-
-
+ function lerpTarget() {
+   // Linearly interpolate the target position towards the new targetPosition
+   controls.target.lerp(targetPosition, lerpFactor);
+ 
+   // Check if the target position has been reached
+   if (controls.target.distanceTo(targetPosition) > 0.001) {
+     // Continue the lerp if the target hasn't reached the destination
+     lerpAnimationId = requestAnimationFrame(lerpTarget);
+   } else {
+     // Stop the lerp animation when the target is reached
+     cancelAnimationFrame(lerpAnimationId);
+     lerpAnimationId = null;
+   }
+ }
+ 
 loader.load(
   `models/${objToRender}/scene.gltf`,
   function (gltf) {
@@ -85,38 +109,62 @@ loader.load(
 );
 
 
+const ZoomBtn = document.querySelector(".btn");
+const ZoomHome = document.querySelector(".btn-home");
+const ZoomVideo = document.querySelector(".btn-video");
 
 var clicks;
 
+
+
+
+
+
 ZoomBtn.addEventListener("click", () => {
+
+  if (lerpAnimationId !== null) {
+    cancelAnimationFrame(lerpAnimationId);
+  }
   targetPosition = new THREE.Vector3(-20, -2, -15);
   zoomInTimeline(8, 3, 2, 22, 0);
   lerpTarget();
-  var header = document.getElementById("nav-header");
-  header.style.opacity = 1;
+  
+  
+  setTimeout(() => {
+    var header = document.getElementById("nav-header");
+    header.style.opacity = 1;
+  }, 2000);
   // Hide the element with class "title-header" by adding a CSS class
   const titleHeader = document.querySelector(".title-header");
   if (titleHeader) {
     titleHeader.classList.add("fade-out");
   }
 });
-// ZoomBtn.addEventListener("click", () => {
 
-//   clicks = !clicks;
-//   // Start the lerp animation
-//   if(clicks)
-//   {
-//     targetPosition = new THREE.Vector3(-20,-2,-15);
-//     zoomInTimeline(15,3, 2, 22, 0);
-    
-//   }
-//   else
-//   {
-//     targetPosition = new THREE.Vector3(-90,0,0);
-// 	  zoomInTimeline(1.5,-1, -3, -15, 1);
-//   }
-//    lerpTarget();
-// });
+
+ZoomHome.addEventListener("click", () => {
+
+  if (lerpAnimationId !== null) {
+    cancelAnimationFrame(lerpAnimationId);
+  }
+  targetPosition = new THREE.Vector3(-20, -2, -15);
+  zoomInTimeline(1.5, 3, 2, 22, 0);
+  lerpTarget();
+});
+
+
+ZoomVideo.addEventListener("click", () => {
+
+  if (lerpAnimationId !== null) {
+    cancelAnimationFrame(lerpAnimationId);
+  }
+
+  targetPosition = new THREE.Vector3(-360, -10, 0);
+  zoomInTimeline(1.5, -12, -3, -17, 0.5);
+  lerpTarget();
+});
+
+
 
 
 //Add the renderer to the DOM
