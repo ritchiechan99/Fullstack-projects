@@ -24,6 +24,17 @@ const sleep1crop = new THREE.TextureLoader().load('./models/room/textures/sleep1
 const videoTexture = new THREE.VideoTexture(videoElement);
 
 
+// Get a reference to the HTML element you want to use as a texture
+const htmlElement = document.getElementById("test-onscreen");
+
+// Create a texture from the HTML element
+const textureHtml = new THREE.CanvasTexture(htmlElement);
+texture.needsUpdate = true; // Ensure the texture is updated
+
+
+
+
+
 videoTexture.minFilter = THREE.LinearFilter;
 videoTexture.magFilter = THREE.LinearFilter;
 
@@ -297,7 +308,7 @@ function applyCustomMaterials(object) {
       } else if (child.name === "television_a_21x9") {
         applyMaterialWithoutTexture(child, 1, 1, 0.5, 1.6,0x303030);
       } else if (child.name == "Window001") {
-        applyMaterialWithoutTexturePBR(child, 0.2, 1,1,2);
+        applyMaterialWithoutTexturePBR(child, 0.2, 1,1,0);
       } else if (child.name == "poster_a") {
         applyMaterialToObject(child, fallenangel2_5,0x020412, 0.5, 0.6);
       } else if (child.name == "poster_a001") {
@@ -362,8 +373,8 @@ function applyCustomMaterials(object) {
         applyMaterialWithoutTexture(child, 1, 1, 0.5, 0.9,0xD80032);
       } else if (child.name == "cuerpo_rifle_low_Cube001") {
         applyMaterialWithoutTexture(child, 1, 1, 0.5, 0.9,0xB4B4B3);
-      } else if (child.name == "int_doors_002__entropy_shutter_top_int_w300_a") {
-        applyMaterialWithoutTexture(child, 1, 5, 1, 0.2,0x97FEED);
+      } else if (child.name == "~") {
+        applyMaterialWithoutTexture(child, 1, 5, 1, 0.5,0x97FEED);
       } else if (child.name == "kitsch_lamp_01_hanging_c008") {
         child.material = bloomMaterialForObject;
       } else if (child.name == "kitsch_lamp_01_hanging_c002") {

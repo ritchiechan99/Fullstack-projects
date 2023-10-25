@@ -13,6 +13,8 @@ import { FXAAShader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/s
 
 import {applyCustomMaterials} from './applyCustomMaterials.js';
 import {debugPositionRotation} from './debugPositionRotation.js';
+import {cameraMove} from './buttonClick.js';
+
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -39,54 +41,7 @@ const loader = new GLTFLoader();
 
 
 
-const zoomInTimeline = (duration, x, y, z, zoomOutFactor = 0) => {
-  // Cancel the current animation (if any)
-  gsap.killTweensOf(camera.position);
-  
-  // Calculate the current position as the starting point
-  const currentPosition = { x: camera.position.x, y: camera.position.y, z: camera.position.z };
-  
-  gsap.to(currentPosition, {
-    duration,
-    x,
-    y,
-    z: z + zoomOutFactor,
-    ease: "Power2.easeOut",
-    onUpdate: () => {
-      // Update camera position during the animation
-      camera.position.set(currentPosition.x, currentPosition.y, currentPosition.z);
-      controls.target.lerp(targetPosition, lerpFactor);
-    },
-  });
-};
 
-
-// const zoomInTimeline = (duration, x, y, z, zoomOutFactor = 0) => {
-// 	let tl = gsap
-// 		.timeline({ defaults: { duration:duration,ease: "Power2.easeOut"} })
-// 		.to(camera.position, { x, y, z: z + zoomOutFactor }, 0)
-// };
-
- // Adjust the lerp factor as needed
- const lerpFactor = 0.009;
- var targetPosition;
-
- let lerpAnimationId = null;
-
- function lerpTarget() {
-   // Linearly interpolate the target position towards the new targetPosition
-   controls.target.lerp(targetPosition, lerpFactor);
- 
-   // Check if the target position has been reached
-   if (controls.target.distanceTo(targetPosition) > 0.001) {
-     // Continue the lerp if the target hasn't reached the destination
-     lerpAnimationId = requestAnimationFrame(lerpTarget);
-   } else {
-     // Stop the lerp animation when the target is reached
-     cancelAnimationFrame(lerpAnimationId);
-     lerpAnimationId = null;
-   }
- }
  
 loader.load(
   `models/${objToRender}/scene.gltf`,
@@ -107,62 +62,6 @@ loader.load(
 
   
 );
-
-
-const ZoomBtn = document.querySelector(".btn");
-const ZoomHome = document.querySelector(".btn-home");
-const ZoomVideo = document.querySelector(".btn-video");
-
-var clicks;
-
-
-
-
-
-
-ZoomBtn.addEventListener("click", () => {
-
-  if (lerpAnimationId !== null) {
-    cancelAnimationFrame(lerpAnimationId);
-  }
-  targetPosition = new THREE.Vector3(-20, -2, -15);
-  zoomInTimeline(8, 3, 2, 22, 0);
-  lerpTarget();
-  
-  
-  setTimeout(() => {
-    var header = document.getElementById("nav-header");
-    header.style.opacity = 1;
-  }, 2000);
-  // Hide the element with class "title-header" by adding a CSS class
-  const titleHeader = document.querySelector(".title-header");
-  if (titleHeader) {
-    titleHeader.classList.add("fade-out");
-  }
-});
-
-
-ZoomHome.addEventListener("click", () => {
-
-  if (lerpAnimationId !== null) {
-    cancelAnimationFrame(lerpAnimationId);
-  }
-  targetPosition = new THREE.Vector3(-20, -2, -15);
-  zoomInTimeline(1.5, 3, 2, 22, 0);
-  lerpTarget();
-});
-
-
-ZoomVideo.addEventListener("click", () => {
-
-  if (lerpAnimationId !== null) {
-    cancelAnimationFrame(lerpAnimationId);
-  }
-
-  targetPosition = new THREE.Vector3(-360, -10, 0);
-  zoomInTimeline(1.5, -12, -3, -17, 0.5);
-  lerpTarget();
-});
 
 
 
@@ -191,7 +90,7 @@ if (objToRender === objName) {
   // Enable damping for smoother movement after mouse release
   controls.enableDamping = true;
   controls.dampingFactor = 0.05; // Adjust the damping factor as needed
-  // controls.enabled = false;
+  controls.enabled = false;
   const targetPosition = new THREE.Vector3(-8, 0.72, 45);
   controls.target.copy(targetPosition);
 
@@ -213,12 +112,17 @@ if (objToRender === objName) {
 
   // Set the camera's new position
   camera.position.copy(newPosition);
-
+  cameraMove(camera,controls);
   debugPositionRotation(controls);
 }
 
 
+const testButton = document.getElementById('test-button');
 
+// Add a click event listener to the button
+testButton.addEventListener('click', function() {
+  alert('Button clicked!'); // Display the alert message
+});
 //Render the scene
 
 function addBloomEffect(scene, camera, renderer) {

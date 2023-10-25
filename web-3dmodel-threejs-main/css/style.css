@@ -3,9 +3,13 @@
 
 html {
 	height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 html, body{
+  scrollbar-width: none;
   font-family: "Montserrat", sans-serif;
+   margin: 0;
 }
 
 
@@ -22,7 +26,141 @@ html, body{
 	-moz-box-shadow: #333 1px 3px 4px;
 	box-shadow: #333 1px 3px 4px;
   z-index: 2;
+  pointer-events: none;
 }
+
+/* #test-onscreen
+{
+  position: fixed;
+	width: 100%;
+	height: 150px;
+  top: auto;
+  z-index: 1;
+}
+#test-button
+{
+  position: fixed;
+	width: 250px;
+	height: 150px;
+  top: 35%;
+  z-index: 1;
+  opacity: 0;
+} */
+
+
+
+ /*----------------------------------------------*/
+
+
+ .wrapper {
+  top: 720px;
+  --color: #1F242D;
+  --color-invert: #ffffff;
+  --clip-path: polygon(20px 480px, -25px 480px, -25px 520px, 20px 520px);
+  /* --clip-path: polygon(30px 120px, 110px 120px, 110px 100px, 30px 100px); */
+  --clip-path-hover: polygon(40px 450px, -45px 450px, -45px 540px, 40px 540px); 
+  /* --clip-path-clicked: circle(200vw at left); */
+  --clip-path-clicked: polygon(80vw 200vh, -60vw 200vh, -60vw -100vh, 80vw -100vh); 
+  --duration: .4s;
+  --timing-function: ease;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 4s;
+}
+
+
+
+.wrapper .video {
+  height: 80vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 360px;
+  clip-path: var(--clip-path);
+  transition: clip-path var(--duration) var(--timing-function);
+}
+
+
+.wrapper .video video {
+  position: fixed;
+  background: #c4cbde;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+
+}
+
+.wrapper:nth-child(1)
+{
+  position: absolute;
+  left: -500px;
+  right: 0;
+  bottom: 0;
+}
+.wrapper:nth-child(2)
+{
+  position: absolute;
+  left: -400px;
+  right: 0;
+  bottom: 0;
+
+}
+/**************************************************************************************************************************/
+
+/**************************************************************************************************************************/
+
+input {
+width: 50px;
+height: 50px;
+margin: auto;
+position: absolute;
+left: 366px;
+right: 10px;
+top: 46.5%;
+z-index: 2;
+cursor: pointer;
+opacity: 0;
+pointer-events: none;
+}
+
+input:focus {
+  outline: 0;
+}
+
+input:hover ~ .video {
+  clip-path: var(--clip-path-hover);
+}
+
+
+input:checked {
+  position: absolute;
+  width: 600%; /* Increase the width to make it wider */
+  height: 550%; /* Adjust the height if needed */
+  border-radius: 0;
+  left: -230%; /* Adjust the left position if needed */
+  right: -150%; /* Adjust the right position if needed */
+  top: -150%; /* Move it up further if needed */
+  overflow-y: scroll;
+}
+
+
+input:checked ~ .video {
+  clip-path: var(--clip-path-clicked);
+  z-index: 1;
+}
+
+
+ /*----------------------------------------------*/
+
 
 h1 {
 	letter-spacing: 4px;
@@ -89,11 +227,6 @@ polygon {
 }
 
 
-body {
-  margin: 0;
-  background-color: #ffffff;
-  
-}
 
 
 

@@ -6,7 +6,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>A simple Three.JS App</title>
+    <title>Ritchie's Portfolio</title>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
@@ -31,6 +31,8 @@
         <p>Zoom : <span id="zoom"></span></p>
       </div> -->
       <div id="p">=</div>
+
+      
 
       <div class="title-header">
         <div class="overlay-container">
@@ -57,6 +59,7 @@
          </ul>
          <svg class="line-bottom" width="750" height="30" viewbox="0,0 1000,40">
           <polygon class="lb" points="35,53 115,53 125,43 135,53 215,53" />
+          
           <polygon class="lb" points="285,53 365,53 375,43 385,53 465,53" />
        
           <polygon class="lb" points="535,53 615,53 625,43 635,53 715,53" />
@@ -65,12 +68,29 @@
          </svg>
         </div>
       </div>
+
+      <div id="test-onscreen">
+        <button id="test-button">click</button>
+      </div>
+
+      <div class="wrapper-container">
+        <div class="wrapper">
+          <input type="checkbox" class="check">
+          <div class="video">
+            <video src="sdv.mp4" loop muted autoplay playsinline></video>
+          </div>
+        </div>
+        <div class="wrapper">
+          <input type="checkbox" class="check">
+          <div class="video">
+            <video src="https://www.robmillsarchitects.com/files/land/city/RMA_Web_land_city_1.mp4" loop muted autoplay playsinline></video>
+          </div>
+        </div>
+    </div>
     </body>
     <script type="module" src="js/intro.js"></script>
     <script type="module" src="js/navbarAnimation.js"></script>
     <script type="module" src="js/main.js"></script>
-    <script type="module">
-      import { myFunction } from './js/main.js'; // Adjust the path as needed
-  </script>
+    <script type="module" src="js/buttonClick.js"></script>
   </body>
 </html>
