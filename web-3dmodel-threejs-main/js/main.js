@@ -14,6 +14,7 @@ import { FXAAShader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/s
 import {applyCustomMaterials} from './applyCustomMaterials.js';
 import {debugPositionRotation} from './debugPositionRotation.js';
 import {cameraMove} from './buttonClick.js';
+import {changeVideoSource, videoSrc1, videoSrc2} from './videoTexturesVariable.js'
 
 
 const scene = new THREE.Scene();
@@ -48,6 +49,7 @@ loader.load(
   function (gltf) {
     // If the file is loaded, add it to the scene
     object = gltf.scene;
+    changeVideoSource(videoSrc1);
     applyCustomMaterials(object);
     scene.add(object);
   },

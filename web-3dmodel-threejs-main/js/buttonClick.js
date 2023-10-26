@@ -102,7 +102,7 @@ function cameraMove(camera,controls)
     }
     wrappers.forEach(wrapper => {
       wrapper.style.opacity = 0;
-      wrapper.style.transition = 'opacity 0.1s'; 
+      wrapper.style.transition = 'opacity 0.01s'; 
     });
     check.forEach(check => {
       check.style.pointerEvents = 'none';
@@ -117,16 +117,21 @@ function cameraMove(camera,controls)
   ZoomVideo.addEventListener("click", () => {
   
     cancelAnimationFrame(lerpAnimationId);
-    wrappers.forEach(wrapper => {
-      wrapper.style.opacity = 1;
-      wrapper.style.transition = 'opacity 5s'; 
-    });
-    check.forEach(check => {
-      check.style.pointerEvents = 'auto';
-    });
-    targetPosition = new THREE.Vector3(-360, -10, 0);
+    
+    targetPosition = new THREE.Vector3(-360, -10, -10);
     changeTarget(targetPosition);
-     zoomInTimeline(1.5, -12, -3, -17, 0.5);
+    zoomInTimeline(1.5, -12, -3, -17, 0.5);
+    setTimeout(() => {
+      wrappers.forEach(wrapper => {
+        wrapper.style.opacity = 1;
+        wrapper.style.transition = 'opacity 0.5s'; 
+      });
+      
+      check.forEach(check => {
+        check.style.pointerEvents = 'auto';
+      });
+    }, 1500);
+ 
     // lerpTarget();
   });
 

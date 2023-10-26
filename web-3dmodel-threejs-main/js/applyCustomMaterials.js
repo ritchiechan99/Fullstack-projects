@@ -9,7 +9,7 @@ import { FXAAShader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/s
 import { RGBELoader } from "https://raw.githack.com/mrdoob/three.js/r129/examples/jsm/loaders/RGBELoader.js";
 
 
-const videoElement = document.getElementById("video");
+
 
 const texture = new THREE.TextureLoader().load('./models/room/textures/wp9450529.png');
 const texture2 = new THREE.TextureLoader().load('./models/room/textures/grey-felt-texture.jpg');
@@ -21,24 +21,13 @@ const fallenangel2_5 = new THREE.TextureLoader().load('./models/room/textures/fa
 const eula_finish = new THREE.TextureLoader().load('./models/room/textures/eula-finish.png');
 const sleep1crop = new THREE.TextureLoader().load('./models/room/textures/sleep1crop.png');
 
+
+
+const videoElement = document.getElementById("video");
 const videoTexture = new THREE.VideoTexture(videoElement);
-
-
-// Get a reference to the HTML element you want to use as a texture
-const htmlElement = document.getElementById("test-onscreen");
-
-// Create a texture from the HTML element
-const textureHtml = new THREE.CanvasTexture(htmlElement);
-texture.needsUpdate = true; // Ensure the texture is updated
-
-
-
-
 
 videoTexture.minFilter = THREE.LinearFilter;
 videoTexture.magFilter = THREE.LinearFilter;
-
-
 videoTexture.flipY = false;
 
 
@@ -208,7 +197,6 @@ function applyRainDropletsMaterialWithReflection(child, emissiveIntensityValue) 
   }
 }
 
-
 function applyIridescentMaterialToObject(child, emissiveIntensityValue) {
     const materials = Array.isArray(child.material) ? child.material : [child.material];
     for (const material of materials) {
@@ -288,8 +276,20 @@ function applyIridescentMaterialToObject(child, emissiveIntensityValue) {
     roughness: 0, // Adjust the roughness (0 to 1)
   });
 
+
+  const checkbox = document.querySelector(".check.portfolio-1");
+
+
+  checkbox.addEventListener("mouseover", function() {
+    // Mouse hover event
+    changeTextureForPortfolio1();
+  });
   
-function applyCustomMaterials(object) {
+
+
+
+  
+export function applyCustomMaterials(object) {
   object.traverse(function (child) {
     if (child.isMesh) {
       const meshName = child.name;
@@ -419,4 +419,3 @@ function applyCustomMaterials(object) {
   });
 }
 
-export { applyCustomMaterials };
