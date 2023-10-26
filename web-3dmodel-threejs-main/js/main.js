@@ -49,7 +49,7 @@ loader.load(
   function (gltf) {
     // If the file is loaded, add it to the scene
     object = gltf.scene;
-    changeVideoSource(videoSrc1);
+    // changeVideoSource(videoSrc1);
     applyCustomMaterials(object);
     scene.add(object);
   },

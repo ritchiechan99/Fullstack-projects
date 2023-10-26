@@ -8,8 +8,10 @@
     <meta charset="utf-8" />
     <title>Ritchie's Portfolio</title>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+
   </head>
   <body>
     <main>
@@ -17,7 +19,7 @@
     </main>
     <body>
       <video id="video" autoplay loop style="display: none; width: 1px; height: 1px;">
-        <source src="sdv.mp4" type="video/mp4">
+        <source src="src/videos/sdv.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
       <div id="background">
@@ -77,20 +79,54 @@
         <div class="wrapper">
           <input type="checkbox" class="check portfolio-1">
           <div class="video">
-            <video src="sdv.mp4" loop muted autoplay playsinline></video>
+            <video src="src/videos/3DRPG.mp4" loop muted autoplay playsinline></video>
           </div>
+          <h1 class="wrapper-text">test</h1>
         </div>
         <div class="wrapper">
           <input type="checkbox" class="check portfolio-2">
           <div class="video">
-            <video src="https://www.robmillsarchitects.com/files/land/city/RMA_Web_land_city_1.mp4" loop muted autoplay playsinline></video>
+            <video src="src/videos/shaderProject.mp4" loop muted autoplay playsinline></video>
           </div>
         </div>
+        <div class="wrapper">
+          <input type="checkbox" class="check portfolio-3">
+          <div class="video">
+            <video src="src/videos/RPGproj.mp4" loop muted autoplay playsinline></video>
+          </div>
+        </div>
+       
+        <div class="wrapper-content">
+          <h1 class="wrapper-title">To Home</h1>
+          <p class="wrapper-description">This is my first official game project that I did for school submission when I'm touching the tips of C#
+
+            This is a simple 3D physics platformers 
+            
+            This was done with the idea of balancing 2d and 3d object to make something aesthetic pleasing for the eyes</p>
+            
+          <div class="wrapper-images">
+            <button class="carousel-arrow carousel-arrow--prev">
+              &#8249;
+            </button>
+          
+            <button class="carousel-arrow carousel-arrow--next">
+              &#8250;
+            </button>
+            
+            <div class="carousel-container" dir="ltr">
+              <div class="carousel-slide">1</div>
+              <div class="carousel-slide">2</div>
+              <div class="carousel-slide">3</div>
+              <div class="carousel-slide">3</div>
+            </div>
+          </div>
+      </div>
     </div>
     </body>
     <script type="module" src="js/intro.js"></script>
     <script type="module" src="js/navbarAnimation.js"></script>
     <script type="module" src="js/main.js"></script>
     <script type="module" src="js/buttonClick.js"></script>
+    <script type="module" src="js/imageSwipe.js"></script>
   </body>
 </html>
