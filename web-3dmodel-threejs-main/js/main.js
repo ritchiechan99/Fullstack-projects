@@ -119,12 +119,7 @@ if (objToRender === objName) {
 }
 
 
-const testButton = document.getElementById('test-button');
 
-// Add a click event listener to the button
-testButton.addEventListener('click', function() {
-  alert('Button clicked!'); // Display the alert message
-});
 //Render the scene
 
 function addBloomEffect(scene, camera, renderer) {

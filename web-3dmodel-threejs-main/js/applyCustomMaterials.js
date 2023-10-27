@@ -280,10 +280,10 @@ function applyIridescentMaterialToObject(child, emissiveIntensityValue) {
   const checkbox = document.querySelector(".check.portfolio-1");
 
 
-  checkbox.addEventListener("mouseover", function() {
-    // Mouse hover event
-    changeTextureForPortfolio1();
-  });
+  // checkbox.addEventListener("mouseover", function() {
+  //   // Mouse hover event
+  //   changeTextureForPortfolio1();
+  // });
   
 
 
@@ -390,7 +390,7 @@ export function applyCustomMaterials(object) {
       } else if (child.name == "vs_apartment_tech_det_b") {
         BloomMaterial(child,0x97FEED,0.7);
       } else if (child.name == "submesh_02_LOD_1008") {
-        BloomMaterial(child,0xD80032,0.9);
+        BloomMaterial(child,0xF4CE14,0.9);
       } else if (child.name == "submesh_02_LOD_1025") {
         BloomMaterial(child,0xD80032,0.9);
       } else if (child.name == "submesh_01_LOD_1032") {

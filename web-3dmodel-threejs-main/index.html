@@ -10,6 +10,8 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://kit.fontawesome.com/60a906a65f.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="css/style.css" />
 
   </head>
@@ -57,7 +59,7 @@
           />
          </svg>
          <ul>
-          <li class="btn-home">Home</li><li class="btn-video">Pastworks</li><li class="btn-Hobbies">Hobbies</li><li>About</li>
+          <li class="btn-home">Home</li><li class="btn-video">Pastworks</li><li class="btn-hobbies">Hobbies</li><li class="btn-about">About</li>
          </ul>
          <svg class="line-bottom" width="750" height="30" viewbox="0,0 1000,40">
           <polygon class="lb" points="35,53 115,53 125,43 135,53 215,53" />
@@ -70,18 +72,31 @@
          </svg>
         </div>
       </div>
-
-      <div id="test-onscreen">
-        <button id="test-button">click</button>
+      <div class="hobbies-container">
+        <button class="hobbies-button-prev">
+          <i class="fa-solid fa-chevron-left fa-lg" style="color: #ffffff;"></i>
+        </button>
+        <button class="hobbies-button-next">
+          <i class="fa-solid fa-chevron-right fa-lg" style="color: #ffffff;"></i>
+        </button>
+        <div class="hobbies-text-content">
+          <p class="wrapper-summary">
+            The art I've created during my free time holds significant personal value. 
+            <br>
+            <br>
+            Whether it's digital art, traditional sketches, or any other medium, my artwork reflects my passion and artistic expression. 
+            <br>
+            <br>
+            It's an important part of my identity and showcases the balance between my programming skills and my artistic talents.</p>
+        </div>
       </div>
-
       <div class="wrapper-container">
         <div class="wrapper">
           <input type="checkbox" class="check portfolio-1">
           <div class="video">
             <video src="src/videos/3DRPG.mp4" loop muted autoplay playsinline></video>
           </div>
-          <h1 class="wrapper-text">test</h1>
+          
         </div>
         <div class="wrapper">
           <input type="checkbox" class="check portfolio-2">
@@ -95,7 +110,12 @@
             <video src="src/videos/RPGproj.mp4" loop muted autoplay playsinline></video>
           </div>
         </div>
-       
+        <div class="wrapper">
+          <input type="checkbox" class="check portfolio-4">
+          <div class="video">
+            <video src="src/videos/BUG.mp4" loop muted autoplay playsinline></video>
+          </div>
+        </div>
         <div class="wrapper-content">
           <h1 class="wrapper-title">To Home</h1>
           <p class="wrapper-description">This is my first official game project that I did for school submission when I'm touching the tips of C#
@@ -104,6 +124,16 @@
             
             This was done with the idea of balancing 2d and 3d object to make something aesthetic pleasing for the eyes</p>
             
+          <div class="wrapper-gameSummary">
+            <p class="wrapper-summary">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+          
+            <h1>Platform and Genre</h1>
+            <div class="icon-container">
+              
+            </div>
+          </div>
+          
+
           <div class="wrapper-images">
             <button class="carousel-arrow carousel-arrow--prev">
               &#8249;
@@ -114,12 +144,12 @@
             </button>
             
             <div class="carousel-container" dir="ltr">
-              <div class="carousel-slide">1</div>
-              <div class="carousel-slide">2</div>
-              <div class="carousel-slide">3</div>
-              <div class="carousel-slide">3</div>
+              <!-- <div class="carousel-slide">
+                <img src="./src/images/3drpg/to home 1.png" alt="">
+              </div>-->
             </div>
           </div>
+          <h1 class="wrapper-text">click anywhere to exit</h1>
       </div>
     </div>
     </body>
