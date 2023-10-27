@@ -61,11 +61,35 @@ html, body{
   left: 65%;
   width: 500px;
   font-size: 30px;
+  padding: 2%;
   color: white;
   background-color:#00242b93;
   text-align: left;
   pointer-events: none;
 }
+
+.about-container
+{
+  position: fixed;
+	width: 40%;
+	height: 40%;
+  top: auto;
+  top: 25%;
+  left: 50%;
+  z-index: 2;
+  opacity: 0;
+
+  background-color:#00242b93;
+  pointer-events: none;
+}
+.about-summary
+{
+  color: white;
+  font-size: 30px;
+  padding: 5%;
+  pointer-events: none;
+}
+
 .wrapper-summary {
   padding-left: 5%; 
   padding-right: 5%; 
@@ -193,9 +217,7 @@ h3
   --color: #1F242D;
   --color-invert: #ffffff;
   --clip-path: polygon(20px 480px, -25px 480px, -25px 520px, 20px 520px);
-  /* --clip-path: polygon(30px 120px, 110px 120px, 110px 100px, 30px 100px); */
-  --clip-path-hover: polygon(40px 450px, -45px 450px, -45px 540px, 40px 540px); 
-  /* --clip-path-clicked: circle(200vw at left); */
+  --clip-path-hover: polygon(40px 450px, -45px 450px, -45px 540px, 40px 540px);
   --clip-path-clicked: polygon(80vw 200vh, -60vw 200vh, -60vw -100vh, 80vw -100vh); 
   --duration: .4s;
   --timing-function: ease;
@@ -211,6 +233,7 @@ h3
 
 
 .wrapper .video {
+  
   height: 80vh;
   overflow: hidden;
   display: flex;
@@ -219,6 +242,7 @@ h3
   margin-left: 360px;
   clip-path: var(--clip-path);
   transition: clip-path var(--duration) var(--timing-function);
+  
 }
 
 
@@ -232,6 +256,7 @@ h3
   min-height: 100%;
   width: auto;
   height: auto;
+  
   transform: translate(-50%, -50%);
 
 }
@@ -242,6 +267,7 @@ h3
   left: -500px;
   right: 0;
   bottom: 0;
+  
 }
 .wrapper:nth-child(2)
 {

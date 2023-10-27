@@ -152,7 +152,9 @@
 				251,
 				252,
 				253,
-				254
+				254,
+				255,
+				256
 			]
 		}
 	],
@@ -3733,6 +3735,46 @@
 				-9.608338356018066,
 				-5.1479082107543945
 			]
+		},
+		{
+			"mesh":155,
+			"name":"Computer.001",
+			"rotation":[
+				0.2471071481704712,
+				0,
+				-0.9689882397651672,
+				0
+			],
+			"scale":[
+				0.8890353441238403,
+				1.3133896589279175,
+				0.9876129031181335
+			],
+			"translation":[
+				-20.827674865722656,
+				-6.377913951873779,
+				-1.885715365409851
+			]
+		},
+		{
+			"mesh":156,
+			"name":"wire1",
+			"rotation":[
+				0.459820032119751,
+				0.2183285653591156,
+				0.10202641040086746,
+				0.8546863794326782
+			],
+			"scale":[
+				0.013638158328831196,
+				1.199072241783142,
+				0.013638156466186047
+			],
+			"translation":[
+				-19.90771484375,
+				-8.668233871459961,
+				-4.961419105529785
+			]
 		}
 	],
 	"materials":[
@@ -5327,6 +5369,19 @@
 					0.800000011920929,
 					0.800000011920929,
 					0.800000011920929,
+					1
+				],
+				"metallicFactor":0
+			}
+		},
+		{
+			"doubleSided":true,
+			"name":"screen.001",
+			"pbrMetallicRoughness":{
+				"baseColorFactor":[
+					0.015994587913155556,
+					0.015994587913155556,
+					0.015994587913155556,
 					1
 				],
 				"metallicFactor":0
@@ -7800,6 +7855,41 @@
 					},
 					"indices":898,
 					"material":87
+				}
+			]
+		},
+		{
+			"name":"Cube.004",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":899,
+						"NORMAL":900,
+						"TEXCOORD_0":901
+					},
+					"indices":856
+				},
+				{
+					"attributes":{
+						"POSITION":902,
+						"NORMAL":903,
+						"TEXCOORD_0":904
+					},
+					"indices":860,
+					"material":88
+				}
+			]
+		},
+		{
+			"name":"Cube.005",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":905,
+						"NORMAL":906,
+						"TEXCOORD_0":907
+					},
+					"indices":885
 				}
 			]
 		}
@@ -15004,6 +15094,90 @@
 			"componentType":5123,
 			"count":19128,
 			"type":"SCALAR"
+		},
+		{
+			"bufferView":899,
+			"componentType":5126,
+			"count":1392,
+			"max":[
+				0.08703729510307312,
+				1.6400327682495117,
+				2.557866334915161
+			],
+			"min":[
+				-0.0872029960155487,
+				-1.0619410276412964,
+				-2.557866334915161
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":900,
+			"componentType":5126,
+			"count":1392,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":901,
+			"componentType":5126,
+			"count":1392,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":902,
+			"componentType":5126,
+			"count":4,
+			"max":[
+				-0.03898581489920616,
+				1.6056629419326782,
+				2.4920871257781982
+			],
+			"min":[
+				-0.03898581489920616,
+				-1.010093092918396,
+				-2.4920871257781982
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":903,
+			"componentType":5126,
+			"count":4,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":904,
+			"componentType":5126,
+			"count":4,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":905,
+			"componentType":5126,
+			"count":24,
+			"max":[
+				1,
+				1,
+				1
+			],
+			"min":[
+				-1,
+				-1,
+				-1
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":906,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":907,
+			"componentType":5126,
+			"count":24,
+			"type":"VEC2"
 		}
 	],
 	"bufferViews":[
@@ -20400,6 +20574,60 @@
 			"byteLength":38256,
 			"byteOffset":9872712,
 			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":16704,
+			"byteOffset":9910968,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":16704,
+			"byteOffset":9927672,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":11136,
+			"byteOffset":9944376,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":48,
+			"byteOffset":9955512,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":48,
+			"byteOffset":9955560,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":32,
+			"byteOffset":9955608,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":9955640,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":288,
+			"byteOffset":9955928,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":192,
+			"byteOffset":9956216,
+			"target":34962
 		}
 	],
 	"samplers":[
@@ -20410,7 +20638,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":9910968,
+			"byteLength":9956408,
 			"uri":"scene.bin"
 		}
 	]

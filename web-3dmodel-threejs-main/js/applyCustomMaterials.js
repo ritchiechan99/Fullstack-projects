@@ -14,7 +14,7 @@ import { RGBELoader } from "https://raw.githack.com/mrdoob/three.js/r129/example
 const texture = new THREE.TextureLoader().load('./models/room/textures/wp9450529.png');
 const texture2 = new THREE.TextureLoader().load('./models/room/textures/grey-felt-texture.jpg');
 const texture3 = new THREE.TextureLoader().load('./models/room/textures/white-fabric-texture.jpg');
-
+const riflePic = new THREE.TextureLoader().load('./src/images/rifle.png');
 
 const portrait = new THREE.TextureLoader().load('./models/room/textures/portrait.png');
 const fallenangel2_5 = new THREE.TextureLoader().load('./models/room/textures/fallenangel2_5.png');
@@ -29,7 +29,7 @@ const videoTexture = new THREE.VideoTexture(videoElement);
 videoTexture.minFilter = THREE.LinearFilter;
 videoTexture.magFilter = THREE.LinearFilter;
 videoTexture.flipY = false;
-
+riflePic.flipY = false;
 
 
 
@@ -280,13 +280,6 @@ function applyIridescentMaterialToObject(child, emissiveIntensityValue) {
   const checkbox = document.querySelector(".check.portfolio-1");
 
 
-  // checkbox.addEventListener("mouseover", function() {
-  //   // Mouse hover event
-  //   changeTextureForPortfolio1();
-  // });
-  
-
-
 
   
 export function applyCustomMaterials(object) {
@@ -297,6 +290,14 @@ export function applyCustomMaterials(object) {
         // console.log(`Mesh Name: ${meshName}, Material Name: ${materialName}`);
       if (child.name === "Cube021_1") { // TV
         applyMaterialToObject(child, videoTexture,0x020412, 2.5, 0);
+      } else if (child.name === "Cube004_1") { 
+        applyMaterialToObject(child, riflePic,0x020412, 2.5, 0);
+        child.material.visible = false;
+      } else if (child.name === "wire1") { 
+        BloomMaterial(child,0x97FEED,1);
+        child.material.visible = false;
+      } else if (child.name === "Cube004") { 
+        child.material.visible = false;
       } else if (child.name === "rich_mattress_a_duvet_c") {
         applyMaterialToObject(child, texture2,0x020412, 0.5, 0.5);
       } else if (child.name === "rich_mattress_a") {

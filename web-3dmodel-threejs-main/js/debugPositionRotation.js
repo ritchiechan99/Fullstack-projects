@@ -3,7 +3,7 @@ import * as THREE from "https://cdn.skypack.dev/three@0.129.0/build/three.module
 
 
 export function debugPositionRotation(controls) {
-  console.log('Updating display...');
+  // console.log('Updating display...');
   
   const $positionElement = $('#position');
   const $rotationElement = $('#rotation');

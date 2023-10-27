@@ -13,17 +13,13 @@ import { FXAAShader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/s
 
 import {applyCustomMaterials} from './applyCustomMaterials.js';
 import {debugPositionRotation} from './debugPositionRotation.js';
-import {cameraMove} from './buttonClick.js';
+import {cameraMove,selfIntro} from './buttonClick.js';
 import {changeVideoSource, videoSrc1, videoSrc2} from './videoTexturesVariable.js'
 
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 camera.position.set(-4.95, -0.34, 2.07);
-
-
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
 
 
 let object;
@@ -36,22 +32,34 @@ document.body.appendChild(renderer.domElement);
 
 let objName = 'room';
 let objToRender = objName;
-//Instantiate a loader for the .gltf file
 const loader = new GLTFLoader();
 
 
 
 
-
+const objectsToToggle = [];
  
 loader.load(
   `models/${objToRender}/scene.gltf`,
   function (gltf) {
-    // If the file is loaded, add it to the scene
+    console.log("Model loaded.");
     object = gltf.scene;
     // changeVideoSource(videoSrc1);
     applyCustomMaterials(object);
+    object.traverse(function (child) {
+      if (child.isMesh) {
+        
+        if (child.name === "Cube004_1" ||
+            child.name === "wire1") { 
+          // console.log(`have`);
+          // child.material.visible = true;
+          objectsToToggle.push(child);
+        }
+        // child.visible = false;
+      }
+    });
     scene.add(object);
+    
   },
   function (xhr) {
     // While it is loading, log the progress
@@ -66,7 +74,19 @@ loader.load(
 );
 
 
+export var materialActive = false;
 
+// Function to toggle material visibility
+function toggleMaterialVisibility() {
+  // Toggle the material state
+  // materialActive = !materialActive;
+
+  // Update material visibility based on the state for objects in the objectsToToggle array
+  objectsToToggle.forEach(object => {
+    console.log("Object Name:", selfIntro);
+    object.material.visible = selfIntro;
+  });
+}
 
 //Add the renderer to the DOM
 document.getElementById("container3D").appendChild(renderer.domElement);
@@ -135,6 +155,7 @@ function addBloomEffect(scene, camera, renderer) {
   composer.addPass(bloomPass);
  
   function animate() {
+    toggleMaterialVisibility();
     requestAnimationFrame(animate);
     composer.render();
     controls.update();

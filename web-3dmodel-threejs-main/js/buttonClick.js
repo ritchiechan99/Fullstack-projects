@@ -6,7 +6,6 @@ import { changeVideoSource, videoSrc1, videoSrc2, videoBUG, videoRPGproj, videoS
 import {imageGallery,toHomeUrls,shader,shadow,bug} from './imageSwipe.js'
 
 
-
 const ZoomBtn = document.querySelector(".btn");
 const ZoomHome = document.querySelector(".btn-home");
 const ZoomVideo = document.querySelector(".btn-video");
@@ -19,9 +18,11 @@ const wrappersContent = document.querySelector('.wrapper-content');
 const hobbiesPrevbtn = document.querySelector('.hobbies-button-prev');
 const hobbiesNextbtn = document.querySelector('.hobbies-button-next');
 
+const aboutContent = document.querySelector('.about-container');
+
 const wrappers = document.querySelectorAll('.wrapper');
 const check = document.querySelectorAll('.check');
-
+export var selfIntro = false;
 
 function cameraMove(camera,controls)
 {
@@ -75,10 +76,14 @@ function cameraMove(camera,controls)
       callback();
     }
   }
-  function createIcon(content) 
+  function createMenus(content) 
   {
+    selfIntro= false;
     hobbiesContent.style.opacity = 0;
     hobbiesContent.style.pointerEvents = 'none';
+    aboutContent.style.opacity = 0;
+    aboutContent.style.opacity = 'opacity 0.5s';
+    aboutContent.style.pointerEvents = 'none';
     wrappersContent.style.opacity = 0;
     wrappers.forEach(wrapper => {
       wrapper.style.opacity = 0;
@@ -113,7 +118,9 @@ function cameraMove(camera,controls)
     }
     else if(content === 'about')
     {
-
+      selfIntro = true;
+      aboutContent.style.opacity = 1;
+    aboutContent.style.opacity = 'opacity 0.5s';
     }
   }
 
@@ -156,20 +163,20 @@ function cameraMove(camera,controls)
   
   ZoomHome.addEventListener("click", () => {
     changeVideoSource(videoSrc1);
-    createIcon("home"); 
+    createMenus("home"); 
     handleButtonClick([-20, -2, -15], 1.5, [3, 2, 22, 0]);
   });
   
   ZoomVideo.addEventListener("click", () => {
     handleButtonClick([-360, -10, -10], 1.5, [-12, -3, -17, 0.5], () => {
     changeVideoSource(video3DRPG);
-    createIcon("video");
+    createMenus("video");
     });
   });
 
   ZoomHobbies.addEventListener("click", () => {
     changeVideoSource(videoSrc1);
-    createIcon("hobbies"); 
+    createMenus("hobbies"); 
 
     handleButtonClick([-360, -10, -10], 1.5, [-15, 1, -4, 0.5], () => {});//pic1
     
@@ -189,6 +196,12 @@ function cameraMove(camera,controls)
       cycleArtNum = 3;
     }
     cycleArt(cycleArtNum);
+  });
+
+  ZoomAbout.addEventListener("click", () => {
+    handleButtonClick([-360, -10, -250], 1.5, [-13, -7, -1, 0.5], () => {});
+    createMenus("about"); 
+
   });
 
 }
