@@ -73,8 +73,7 @@ html, body{
   position: fixed;
 	width: 40%;
 	height: 40%;
-  top: auto;
-  top:  5%;
+  top:  25%;
   left: 50%;
   z-index: 2;
   opacity: 0;
@@ -117,8 +116,9 @@ html, body{
   left: 50%;
   color: white;
   background: transparent;
-  z-index: 2;
+  z-index: 4;
   opacity: 1;
+  /* pointer-events: auto; */
   border: none;
 }
 
@@ -140,6 +140,7 @@ html, body{
   top: -50%;
   left: auto; /* Remove margin-left */
   right: 0; /* Align to the right */
+  pointer-events: none;
   background-color: #00242b4b;
   padding: 30px;
   opacity: 1;
@@ -204,6 +205,7 @@ h3
   opacity: 1;
   width: 800px;
   padding: 10px;
+  pointer-events: none;
 }
 
 .wrapper-text

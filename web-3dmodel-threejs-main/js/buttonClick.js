@@ -184,6 +184,7 @@ function cameraMove(camera,controls)
   });
   hobbiesNextbtn.addEventListener("click", () => {
     cycleArtNum++;
+    // alert("tes");
     if (cycleArtNum > 3) {
       cycleArtNum = 0;
     }
