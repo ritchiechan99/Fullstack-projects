@@ -1,0 +1,133 @@
+Django Framework
+
+Instagram, Youtube, Spotify, etc...
+
+A library of reusable modules
+A framework defines a structure for our project
+
+https://www.djangoproject.com/
+
+=== Install Django [MAC] ====
+    $ pip3 install Django==3.2.3
+
+=== Install Django [Windows] ====
+    $ pip install Django==3.2.3
+
+=== Creating Django Project ====
+    $ django-admin startproject {project_name} . 
+
+
+=================================================
+__init__.py -- Means it is a package
+asgi.py -- Asynchronous server gateway interface (Advance)
+settings.py -- Settings for our app
+urls.py -- Site URL settings
+wsgi.py -- Web server gateway interface (Advance)
+
+manage.py -- Manage Django project
+=================================================
+
+
+=== Start Django Server ====
+    $ python manage.py runserver
+
+*Open new terminal
+
+=== Create an app ====
+    $ python3 manage.py startapp products
+
+
+=================================================
+__init__.py -- Means it is a package
+*We can also publish this in Pypi for others to use this package
+
+admin.py -- Defining how the administrative panel will look like
+apps.py -- Store config settings for this app
+models.py -- Define classes/new types for modelling the concepts in this app
+tests.py -- Automated test (Advance)
+views.py -- What will user see when they navigate to certain page
+=================================================
+
+== VIEWS ==
+Creating a new page (/products)
+1. products > views.py
+2. products > urls.py
+3. pyshop > urls.py
+
+
+Exercise 1:
+Create a new page - /products/new
+
+
+== MODELS ==
+1. products > models.py
+
+
+== DATABASE ==
+Google: "db browser for sqlite"
+https://sqlitebrowser.org/
+
+Or VSCode Extension "SQLite Viewer"
+
+$ python3 manage.py makemigrations
+
+> pyshop > settings.py (Line 33)
+> products > apps.py
+Add "products.apps.ProductsConfig" to > pyshop > settings.py (Line 33)
+
+$ python manage.py makemigrations
+
+> products > migrations > 0001_initial.py
+
+$ python3 manage.py migrate
+
+
+Exercise 2:
+Create a model class "Offer"
+    - code (MAGES2021)
+    - description (20% OFF storewide)
+    - discount (0.2)
+
+
+== ADMIN ==
+http://127.0.0.1:8000/admin/
+
+Creating superuser
+
+$ python3 manage.py createsuperuser
+$ admin
+$ email@email.com
+$ Password12!
+
+Add products to admin page
+1. products > admin.py
+
+Customise product list in admin page
+1. products > admin.py
+2. create class "ProductAdmin" inherits "admin.ModelAdmin"
+
+
+Exercise 2:
+Create "Offer" in admin panel
+
+
+== TEMPLATES ==
+1. products > views.py
+2. import product model
+3. products = Product.objects.all()
+
+Add new HTML template:
+1. create new folder "templates" in products.
+2. create file "index.html" in templates folder
+
+Link HTML file to views.py
+1. products > views.py
+2. return render()
+3. Go back to index.html
+4. {% %} - (Template tag) To add python code
+5. {{ }} - Dynamically render values to HTML markup
+
+Link views to base.html
+1. pyshop > settings.py
+2. Import "import os"
+3. line 58 > 'DIRS' > Add "os.path.join(BASE_DIR, 'templates')"
